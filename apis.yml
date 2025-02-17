@@ -102,6 +102,8 @@ apis:
       The Accounts API enables you, or rather the calling entity,
       the                    machine user to discover in which partitions it has
       access            
+    tags:
+      - Accounts
   - aid: siemens:fire-api
     name: Siemens Fire API
     humanURL: https://developer.siemens.com/building-x-openness/api/fire/overview.html
