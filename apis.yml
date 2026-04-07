@@ -1,6 +1,5 @@
 aid: siemens
-url: 
-  https://raw.githubusercontent.com/api-search/siemens/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-search/siemens/refs/heads/main/apis.yml
 apis:
   - aid: siemens:airport-vertical-api
     name: Siemens Airport Vertical API
@@ -136,8 +135,7 @@ apis:
       about users, such as their contact details and activity history.
   - aid: siemens:fire-api
     name: Siemens Fire API
-    humanURL: 
-      https://developer.siemens.com/building-x-openness/api/fire/overview.html
+    humanURL: https://developer.siemens.com/building-x-openness/api/fire/overview.html
     properties:
       - url: >-
           https://developer.siemens.com/building-x-openness/api/fire/overview.html
@@ -373,11 +371,9 @@ apis:
       it in real-time, and take responsive actions to optimize industrial processes.
   - aid: siemens:occupancy-apis
     name: Siemens Occupancy APIs
-    humanURL: 
-      https://developer.siemens.com/enlighted-apis/occupancy/overview.html
+    humanURL: https://developer.siemens.com/enlighted-apis/occupancy/overview.html
     properties:
-      - url: 
-          https://developer.siemens.com/enlighted-apis/occupancy/overview.html
+      - url: https://developer.siemens.com/enlighted-apis/occupancy/overview.html
         type: Documentation
     description: >-
       Siemens Occupancy APIs provide a platform for users to access real-time data
@@ -1323,11 +1319,9 @@ apis:
       for your Location.
   - aid: siemens:ot-companion-protection-settings-api
     name: Siemens OT Companion Protection Settings API
-    humanURL: 
-      https://developer.siemens.com/otc/protection-setting-api/overview.html
+    humanURL: https://developer.siemens.com/otc/protection-setting-api/overview.html
     properties:
-      - url: 
-          https://developer.siemens.com/otc/protection-setting-api/overview.html
+      - url: https://developer.siemens.com/otc/protection-setting-api/overview.html
         type: Documentation
     description: >-
       OT Companion Protection Settings API allows you to retrieve the assets with
@@ -1480,8 +1474,7 @@ apis:
       to a custom workflow.
   - aid: siemens:product-information-hub
     name: Siemens Product Information Hub
-    humanURL: 
-      https://developer.siemens.com/product-information-api/overview.html
+    humanURL: https://developer.siemens.com/product-information-api/overview.html
     properties:
       - url: https://developer.siemens.com/product-information-api/overview.html
         type: Documentation
@@ -1531,11 +1524,9 @@ apis:
       Siemens API Catalogue is available on the Public API Network hosted by Postman.
   - aid: siemens:node-red-connectivity-playground
     name: Siemens Node-RED Connectivity Playground
-    humanURL: 
-      https://developer.siemens.com/"https://playground.mindconnect.rocks"
+    humanURL: https://developer.siemens.com/"https://playground.mindconnect.rocks"
     properties:
-      - url: 
-          https://developer.siemens.com/"https://playground.mindconnect.rocks"
+      - url: https://developer.siemens.com/"https://playground.mindconnect.rocks"
         type: Documentation
     description: >-
       Take a look at the live Node-RED flow examples which are sending the industrial
@@ -1569,8 +1560,7 @@ apis:
       Create financing proposals for your customers straight from your platform.
   - aid: siemens:sigreen-procurement-api
     name: Siemens SiGREEN Procurement API
-    humanURL: 
-      https://developer.siemens.com/sigreen/procurement-api/api-procurement.html
+    humanURL: https://developer.siemens.com/sigreen/procurement-api/api-procurement.html
     properties:
       - url: >-
           https://developer.siemens.com/sigreen/procurement-api/api-procurement.html
@@ -1590,11 +1580,9 @@ apis:
       managing products and Bills of Materials (BOM) for your company.
   - aid: siemens:sigreen-mytask-api
     name: Siemens SiGREEN MyTask API
-    humanURL: 
-      https://developer.siemens.com/sigreen/my-tasks-api/api-my-tasks.html
+    humanURL: https://developer.siemens.com/sigreen/my-tasks-api/api-my-tasks.html
     properties:
-      - url: 
-          https://developer.siemens.com/sigreen/my-tasks-api/api-my-tasks.html
+      - url: https://developer.siemens.com/sigreen/my-tasks-api/api-my-tasks.html
         type: Documentation
     description: >-
       The MyTasks API, part of SiGREENs suite of REST APIs, provides endpoints for
@@ -1636,8 +1624,8 @@ apis:
       Calculation of product costs and carbon footprint.
 name: Siemens
 tags:
-  - Electricfication
   - Automation
+  - Electricfication
   - Industry
   - Manufacturing
 type: Contract
