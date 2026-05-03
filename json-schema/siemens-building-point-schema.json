@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://developer.siemens.com/schemas/building-point",
+  "title": "BuildingDataPoint",
+  "description": "Represents a building automation data point — a sensor, setpoint, or actuator in a Siemens building management system.",
+  "type": "object",
+  "required": ["id", "name", "type"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the building data point"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the data point"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of what the data point measures or controls"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "analog-input",
+        "analog-output",
+        "binary-input",
+        "binary-output",
+        "multistate-input",
+        "multistate-output"
+      ],
+      "description": "BACnet point type classification"
+    },
+    "unit": {
+      "type": "string",
+      "description": "Engineering unit for the measurement (e.g., degC, Pa, m3/h, %)"
+    },
+    "currentValue": {
+      "type": "object",
+      "description": "Current real-time value and quality",
+      "properties": {
+        "value": {
+          "description": "Current measured or commanded value"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "quality": {
+          "type": "string",
+          "enum": ["good", "bad", "uncertain"]
+        }
+      }
+    },
+    "writable": {
+      "type": "boolean",
+      "description": "Whether this point accepts write commands from the API"
+    },
+    "equipmentId": {
+      "type": "string",
+      "description": "Identifier of the equipment this point belongs to"
+    }
+  }
+}

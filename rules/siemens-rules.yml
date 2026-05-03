@@ -1,0 +1,93 @@
+extends: spectral:oas
+rules:
+  # Siemens Building X APIs use Bearer token auth
+  siemens-bearer-auth-required:
+    description: Siemens Building X APIs must use Bearer token authentication
+    message: API security must include Bearer token scheme
+    severity: error
+    given: "$.components.securitySchemes[*]"
+    then:
+      field: scheme
+      function: enumeration
+      functionOptions:
+        values:
+          - bearer
+
+  # Building data follows OData paging conventions (skip/top)
+  siemens-odata-pagination:
+    description: List endpoints should support OData skip/top pagination
+    message: List operation should define skip and top query parameters
+    severity: warn
+    given: "$.paths[*].get.parameters[?(@.in == 'query')]"
+    then:
+      field: name
+      function: pattern
+      functionOptions:
+        match: "^(skip|top|filter|select|orderby|from|to|status|type|severity|resolution)$"
+
+  # All operations must have summary
+  siemens-operation-summary-required:
+    description: All operations must have a summary
+    message: Operation is missing a summary
+    severity: error
+    given: "$.paths[*][*]"
+    then:
+      field: summary
+      function: truthy
+
+  # Building equipment types should use consistent naming
+  siemens-equipment-type-enum:
+    description: Equipment type fields should use enumeration
+    message: Equipment type should use a defined enumeration
+    severity: warn
+    given: "$.components.schemas[*].properties.type"
+    then:
+      field: enum
+      function: truthy
+
+  # Status fields should enumerate valid values
+  siemens-status-enum:
+    description: Status fields must define enumerated values
+    message: Status field should define an enum
+    severity: warn
+    given: "$.components.schemas[*].properties.status"
+    then:
+      field: enum
+      function: truthy
+
+  # List responses should use OData value wrapper
+  siemens-list-response-value-array:
+    description: List responses should use OData value array wrapper
+    message: List response should wrap results in a 'value' array property
+    severity: warn
+    given: "$.components.schemas[?(@.properties.value)]"
+    then:
+      field: properties.value.type
+      function: enumeration
+      functionOptions:
+        values:
+          - array
+
+  # Timestamps must use ISO 8601 format
+  siemens-timestamp-format:
+    description: Timestamp fields must use ISO 8601 date-time format
+    message: "Timestamp field '{{property}}' should use format: date-time"
+    severity: warn
+    given: "$.components.schemas[*].properties[?(@.description =~ /timestamp|time|date/i)]"
+    then:
+      field: format
+      function: enumeration
+      functionOptions:
+        values:
+          - date-time
+          - date
+
+  # Operations must have operationId
+  siemens-operation-id-required:
+    description: All operations must have an operationId
+    message: Operation is missing an operationId
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: operationId
+      function: truthy

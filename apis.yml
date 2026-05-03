@@ -93,10 +93,23 @@ apis:
     name: Siemens Building Operations API
     humanURL: >-
       https://developer.siemens.com/building-x-openness/api/building-operations/overview.html
+    baseURL: https://buildingx.siemens.com/api/v1
     properties:
       - url: >-
           https://developer.siemens.com/building-x-openness/api/building-operations/overview.html
         type: Documentation
+      - url: openapi/siemens-building-operations-openapi.yml
+        type: OpenAPI
+      - url: rules/siemens-rules.yml
+        type: SpectralRules
+      - url: capabilities/building-operations.yaml
+        type: Capabilities
+      - url: json-schema/siemens-building-point-schema.json
+        type: JSONSchema
+      - url: json-ld/siemens-context.jsonld
+        type: JSONLD
+      - url: vocabulary/siemens-vocabulary.yml
+        type: Vocabulary
     description: >-
       The Siemens Building Operations API is a powerful tool that allows developers
       to integrate and customize building automation systems. This API enables communication
@@ -1625,15 +1638,28 @@ apis:
 name: Siemens
 tags:
   - Automation
-  - Electricfication
+  - Electrification
   - Industry
   - Manufacturing
+  - Building Automation
+  - Industrial IoT
+  - Smart Buildings
+  - Digital Twin
 type: Contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 created: '2024-11-08'
-modified: '2026-03-16'
+modified: '2026-05-02'
 position: Consuming
+common:
+  - type: Website
+    url: https://www.siemens.com
+  - type: Developer Portal
+    url: https://developer.siemens.com/
+  - type: GitHub
+    url: https://github.com/siemens
+  - type: Documentation
+    url: https://developer.siemens.com/
 description: >-
   Siemens is a global powerhouse in the fields of electrification, automation and
   digitalization. The company offers a broad portfolio of products, solutions and

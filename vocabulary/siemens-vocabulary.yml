@@ -1,0 +1,118 @@
+vocabulary:
+  name: Siemens Technology Vocabulary
+  description: >-
+    Domain vocabulary covering Siemens' broad technology portfolio including
+    building automation, industrial IoT, electrification, digital manufacturing,
+    and smart infrastructure APIs.
+  version: '1.0'
+  created: '2026-05-02'
+  provider: Siemens
+
+terms:
+  - term: Building X
+    definition: >-
+      Siemens' open building technology ecosystem that provides a cloud-native
+      platform with standardized APIs for integrating building automation systems,
+      energy management, and smart building applications from multiple vendors.
+    synonyms:
+      - Building X openness
+      - Siemens smart building platform
+
+  - term: Data Point
+    definition: >-
+      An individual addressable element in a building automation system
+      representing a sensor reading (input), control setpoint (output), or
+      actuator state. Points follow BACnet object type classifications including
+      analog input/output and binary input/output.
+    synonyms:
+      - BAS point
+      - BACnet object
+      - control point
+
+  - term: BACnet
+    definition: >-
+      Building Automation and Control Networks — the dominant communication
+      protocol for building automation systems standardized as ANSI/ASHRAE 135.
+      Siemens building systems use BACnet for device communication and define
+      data points following BACnet object type conventions.
+    synonyms:
+      - Building Automation and Control Networks
+      - ASHRAE 135
+
+  - term: Air Handling Unit (AHU)
+    definition: >-
+      A mechanical device that conditions and distributes air throughout a
+      building's HVAC system. AHUs contain components such as fans, heating/
+      cooling coils, filters, and dampers. They are a primary source of
+      building automation data points including temperatures, pressures, and
+      airflow rates.
+    synonyms:
+      - AHU
+      - air handler
+
+  - term: Aspect (MindSphere)
+    definition: >-
+      In the MindSphere context, a logical grouping of measurement variables
+      from an industrial asset that share a functional relationship (e.g.,
+      "ElectricalData" with voltage, current, and power variables).
+
+  - term: Digital Twin
+    definition: >-
+      A digital replica of a physical asset, system, or process that enables
+      monitoring, simulation, and optimization. Siemens creates digital twins
+      for both building systems (via Building X) and industrial equipment
+      (via MindSphere/Insights Hub).
+    synonyms:
+      - digital replica
+      - asset twin
+
+  - term: Insights Hub
+    definition: >-
+      The current branding for Siemens' Industrial IoT as a Service platform,
+      formerly known as MindSphere. Provides APIs for asset management, time
+      series data, event management, and analytics for industrial equipment
+      and manufacturing processes.
+    synonyms:
+      - MindSphere
+      - Siemens Industrial IoT
+
+  - term: OData
+    definition: >-
+      Open Data Protocol — an OASIS standard for REST-based data APIs. Siemens
+      Building X and several other Siemens APIs use OData query conventions
+      including $filter, $skip, $top, and $select for data access.
+    synonyms:
+      - Open Data Protocol
+      - OASIS OData
+
+  - term: Priority Array
+    definition: >-
+      A BACnet concept where up to 16 priority levels can command a writable
+      data point, with lower numeric priority values taking precedence. Priority
+      1 is highest; priority 16 (manual operator override) is lowest. The
+      present value is determined by the highest active priority.
+    related:
+      - Data Point
+      - BACnet
+
+  - term: Trend Data
+    definition: >-
+      Historical time-stamped records of building data point values stored
+      in the building management system. Trend data enables energy analysis,
+      fault detection, and performance optimization by reviewing equipment
+      behavior over time.
+    synonyms:
+      - trend log
+      - historical data
+
+tags:
+  - Building Automation
+  - Smart Buildings
+  - Industrial IoT
+  - Electrification
+  - Manufacturing
+  - Digital Twin
+  - HVAC
+  - Energy Management
+  - BACnet
+  - Industry 4.0

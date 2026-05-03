@@ -1,0 +1,70 @@
+{
+  "title": "Siemens Building Automation Data Structure",
+  "description": "Hierarchical data model for Siemens Building X smart building automation systems",
+  "type": "object",
+  "structure": {
+    "Building": {
+      "description": "A physical building managed by a Siemens building automation system",
+      "fields": {
+        "id": { "type": "string", "role": "identifier" },
+        "name": { "type": "string", "role": "label" },
+        "address": { "type": "string", "role": "location" }
+      },
+      "children": {
+        "Equipment": {
+          "description": "A mechanical or electrical system within the building",
+          "fields": {
+            "id": { "type": "string", "role": "identifier" },
+            "name": { "type": "string", "role": "label" },
+            "type": { "type": "enum", "values": ["AHU", "Chiller", "Boiler", "FCU", "VAV", "Pump", "Lighting"], "role": "classification" },
+            "location": { "type": "string", "role": "location" },
+            "status": { "type": "enum", "values": ["operational", "fault", "maintenance", "offline"] }
+          },
+          "children": {
+            "DataPoint": {
+              "description": "An individual sensor, setpoint, or actuator connected to equipment",
+              "fields": {
+                "id": { "type": "string", "role": "identifier" },
+                "name": { "type": "string", "role": "label" },
+                "type": { "type": "enum", "values": ["analog-input", "analog-output", "binary-input", "binary-output"], "role": "classification" },
+                "unit": { "type": "string", "role": "unit" },
+                "writable": { "type": "boolean", "role": "capability" }
+              },
+              "children": {
+                "TrendRecord": {
+                  "description": "A timestamped historical reading for a data point",
+                  "fields": {
+                    "value": { "type": "number|boolean|string", "role": "measurement" },
+                    "timestamp": { "type": "datetime", "role": "identifier" },
+                    "quality": { "type": "enum", "values": ["good", "bad", "uncertain"] }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "Alarm": {
+          "description": "A detected abnormal condition in the building systems",
+          "fields": {
+            "id": { "type": "string", "role": "identifier" },
+            "name": { "type": "string", "role": "label" },
+            "severity": { "type": "enum", "values": ["critical", "high", "medium", "low"], "role": "priority" },
+            "status": { "type": "enum", "values": ["active", "acknowledged", "resolved"] },
+            "triggeredAt": { "type": "datetime", "role": "audit" },
+            "acknowledgedAt": { "type": "datetime", "role": "audit" }
+          }
+        },
+        "Schedule": {
+          "description": "An automation schedule controlling system operation times",
+          "fields": {
+            "id": { "type": "string", "role": "identifier" },
+            "name": { "type": "string", "role": "label" },
+            "type": { "type": "enum", "values": ["weekly", "exception", "calendar"] },
+            "effectiveFrom": { "type": "datetime", "role": "temporal" },
+            "effectiveTo": { "type": "datetime", "role": "temporal" }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "siemens": "https://developer.siemens.com/vocab/",
+    "brick": "https://brickschema.org/schema/Brick#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Building": "schema:LodgingBusiness",
+    "Equipment": "brick:Equipment",
+    "DataPoint": "brick:Point",
+    "Alarm": "siemens:Alarm",
+    "Schedule": "siemens:Schedule",
+    "TrendRecord": "siemens:TrendRecord",
+
+    "id": "@id",
+    "name": "schema:name",
+    "description": "schema:description",
+    "type": "schema:additionalType",
+    "unit": {
+      "@id": "siemens:unit",
+      "@type": "@id"
+    },
+    "writable": {
+      "@id": "siemens:writable",
+      "@type": "xsd:boolean"
+    },
+    "status": "siemens:operationalStatus",
+    "severity": "siemens:severity",
+    "location": "schema:location",
+    "equipmentId": {
+      "@id": "siemens:belongsToEquipment",
+      "@type": "@id"
+    },
+    "value": "schema:value",
+    "timestamp": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "quality": "siemens:dataQuality",
+    "triggeredAt": {
+      "@id": "siemens:triggeredAt",
+      "@type": "xsd:dateTime"
+    },
+    "acknowledgedAt": {
+      "@id": "siemens:acknowledgedAt",
+      "@type": "xsd:dateTime"
+    },
+    "effectiveFrom": {
+      "@id": "schema:validFrom",
+      "@type": "xsd:dateTime"
+    },
+    "effectiveTo": {
+      "@id": "schema:validThrough",
+      "@type": "xsd:dateTime"
+    }
+  }
+}

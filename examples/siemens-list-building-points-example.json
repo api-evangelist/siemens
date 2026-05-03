@@ -1,0 +1,49 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://buildingx.siemens.com/api/v1/points",
+    "headers": {
+      "Authorization": "Bearer eyJhbGciOiJSUzI1NiJ9..."
+    },
+    "query": {
+      "top": 10,
+      "skip": 0
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "value": [
+        {
+          "id": "AHU-01-SA-TEMP",
+          "name": "AHU-01 Supply Air Temperature",
+          "description": "Supply air temperature at AHU-01 discharge",
+          "type": "analog-input",
+          "unit": "degC",
+          "currentValue": {
+            "value": 18.5,
+            "timestamp": "2026-05-02T10:00:00Z",
+            "quality": "good"
+          },
+          "writable": false,
+          "equipmentId": "AHU-01"
+        },
+        {
+          "id": "AHU-01-SA-SP",
+          "name": "AHU-01 Supply Air Temperature Setpoint",
+          "description": "Supply air temperature setpoint for AHU-01",
+          "type": "analog-output",
+          "unit": "degC",
+          "currentValue": {
+            "value": 18.0,
+            "timestamp": "2026-05-02T09:55:00Z",
+            "quality": "good"
+          },
+          "writable": true,
+          "equipmentId": "AHU-01"
+        }
+      ],
+      "nextLink": null
+    }
+  }
+}

@@ -1,0 +1,244 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Siemens Building Operations API"
+  description: "Building automation data access and control via Siemens Building X openness platform for smart building integration."
+  tags:
+    - Building Automation
+    - Smart Buildings
+    - HVAC
+    - Energy Management
+    - Facilities
+  created: "2026-05-02"
+  modified: "2026-05-02"
+
+binds:
+  - namespace: env
+    keys:
+      SIEMENS_BEARER_TOKEN: SIEMENS_BEARER_TOKEN
+
+capability:
+  consumes:
+    - type: http
+      namespace: siemens-building
+      baseUri: https://buildingx.siemens.com/api/v1
+      description: "Siemens Building X Operations REST API"
+      authentication:
+        type: bearer
+        token: "{{SIEMENS_BEARER_TOKEN}}"
+      resources:
+        - name: points
+          path: /points
+          description: "Building data points management"
+          operations:
+            - name: list-points
+              method: GET
+              description: "List building data points"
+              inputParameters:
+                - name: skip
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Records to skip"
+                - name: top
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Maximum records to return"
+                - name: filter
+                  in: query
+                  type: string
+                  required: false
+                  description: "OData filter expression"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: point
+          path: /points/{pointId}
+          description: "Single point operations"
+          operations:
+            - name: get-point
+              method: GET
+              description: "Get a building data point"
+              inputParameters:
+                - name: pointId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Point identifier"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: point-value
+          path: /points/{pointId}/value
+          description: "Point value read/write"
+          operations:
+            - name: get-point-value
+              method: GET
+              description: "Get current value of a building data point"
+              inputParameters:
+                - name: pointId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Point identifier"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: set-point-value
+              method: PUT
+              description: "Set the value of a writable building data point"
+              inputParameters:
+                - name: pointId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Point identifier"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  value: "{{tools.value}}"
+                  priority: "{{tools.priority}}"
+
+        - name: point-trends
+          path: /points/{pointId}/trends
+          description: "Historical trend data"
+          operations:
+            - name: get-point-trend
+              method: GET
+              description: "Get historical trend data for a building data point"
+              inputParameters:
+                - name: pointId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Point identifier"
+                - name: from
+                  in: query
+                  type: string
+                  required: true
+                  description: "Start of time range"
+                - name: to
+                  in: query
+                  type: string
+                  required: true
+                  description: "End of time range"
+                - name: resolution
+                  in: query
+                  type: string
+                  required: false
+                  description: "Data resolution"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: alarms
+          path: /alarms
+          description: "Building alarm management"
+          operations:
+            - name: list-alarms
+              method: GET
+              description: "List building alarms"
+              inputParameters:
+                - name: status
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by alarm status"
+                - name: severity
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by severity"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: alarm-acknowledge
+          path: /alarms/{alarmId}/acknowledge
+          description: "Alarm acknowledgment"
+          operations:
+            - name: acknowledge-alarm
+              method: POST
+              description: "Acknowledge a building alarm"
+              inputParameters:
+                - name: alarmId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Alarm identifier"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: equipment
+          path: /equipment
+          description: "Building equipment management"
+          operations:
+            - name: list-equipment
+              method: GET
+              description: "List building equipment"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: schedules
+          path: /schedules
+          description: "Building automation schedules"
+          operations:
+            - name: list-schedules
+              method: GET
+              description: "List building automation schedules"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: siemens-building-rest
+      resources:
+        - path: /v1/points
+          name: points
+          operations:
+            - method: GET
+              name: list-points
+              description: "List building data points"
+
+    - type: mcp
+      port: 9100
+      namespace: siemens-building-mcp
+      transport: http
+      tools:
+        - name: list-points
+          description: "List building automation data points"
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "siemens-building.list-points"
+          outputParameters:
+            - type: object
+              mapping: "$."
