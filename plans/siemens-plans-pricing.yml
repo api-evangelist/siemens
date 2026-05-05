@@ -1,0 +1,440 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Siemens
+providerId: siemens
+created: '2026-05-04'
+modified: '2026-05-04'
+tags:
+  - Automation
+  - Electrification
+  - Industry
+  - Manufacturing
+  - Building Automation
+  - Industrial IoT
+  - Smart Buildings
+  - Digital Twin
+description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
+  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+plans:
+  - id: siemens-free
+    name: Free
+    type: freemium
+    description: Free entry tier for the Siemens API surface. Intended for evaluation, prototyping, and
+      low-volume integrations. Real limits and pricing must be reconciled with the provider's published
+      plan documentation.
+    entries:
+      - label: API Requests
+        description: Monthly API request quota across all included endpoints
+        name: api_requests
+        type: quota
+        metric: requests
+        limit: 1000
+        timeFrame: month
+        geo: global
+        domains:
+          - https://buildingx.siemens.com/api/v1
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Rate Limit
+        description: Maximum requests per minute on the free tier
+        name: rate_limit
+        type: rate
+        metric: requests_per_minute
+        limit: 10
+        timeFrame: minute
+        geo: global
+        domains:
+          - https://buildingx.siemens.com/api/v1
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: Public Documentation
+      - name: Community Support
+      - name: Sandbox Access
+      - name: Siemens Airport Vertical API
+      - name: Siemens Asset Vertical API
+      - name: Siemens Baggage Vertical API
+      - name: Siemens Container Vertical API
+      - name: Siemens Flight Vertical API
+      - name: Siemens ANYmal API and SDK
+      - name: Siemens Battery Passport REST API
+      - name: Siemens Building Operations API
+  - id: siemens-pro
+    name: Professional
+    type: paid
+    description: Production tier for Siemens. Provides higher quotas, priority support, and access to
+      the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
+    entries:
+      - label: API Requests
+        description: Monthly API request quota
+        name: api_requests
+        type: quota
+        metric: requests
+        limit: 100000
+        timeFrame: month
+        geo: global
+        domains:
+          - https://buildingx.siemens.com/api/v1
+        unit: 1
+        price: TBD
+        userMultiplied: false
+      - label: Rate Limit
+        description: Maximum requests per minute on the professional tier
+        name: rate_limit
+        type: rate
+        metric: requests_per_minute
+        limit: 100
+        timeFrame: minute
+        geo: global
+        domains:
+          - https://buildingx.siemens.com/api/v1
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Overage
+        description: Per-request price after monthly quota is exceeded
+        name: overage
+        type: metered
+        metric: requests
+        limit: -1
+        timeFrame: month
+        geo: global
+        domains:
+          - https://buildingx.siemens.com/api/v1
+        unit: 1000
+        price: TBD
+        userMultiplied: false
+    elements:
+      - name: All Production Endpoints
+      - name: Email Support
+      - name: SLA Targets
+      - name: Webhook Subscriptions
+      - name: Siemens Airport Vertical API
+      - name: Siemens Asset Vertical API
+      - name: Siemens Baggage Vertical API
+      - name: Siemens Container Vertical API
+      - name: Siemens Flight Vertical API
+      - name: Siemens ANYmal API and SDK
+      - name: Siemens Battery Passport REST API
+      - name: Siemens Building Operations API
+      - name: Siemens Building Structure API
+      - name: Siemens Accounts API
+      - name: Siemens Fire API
+      - name: Siemens Security Activities API
+      - name: Siemens Security Identities and Privileges API
+      - name: Siemens Point Value Ingest API
+      - name: Siemens Building Geometry API
+      - name: Siemens Energy API
+      - name: Siemens Lifecycle Twin API
+      - name: Siemens COMOS Web REST API
+      - name: Siemens Charger Status API
+      - name: Siemens Charger Control API
+      - name: Siemens Remote Command API
+      - name: Siemens Reservations API
+      - name: Siemens RFID Management API
+      - name: Siemens Transaction Management API
+      - name: Siemens VDV-261 API
+      - name: Siemens Drivetrain Analyzer Cloud API
+      - name: Siemens Edge App SDK
+      - name: Siemens Occupancy APIs
+      - name: Siemens Location Services APIs
+      - name: Siemens Organization APIs
+      - name: Siemens Area APIs
+      - name: Siemens Sensor APIs
+      - name: Siemens Plugload APIs
+      - name: Siemens Sensor Bluetooth APIs
+      - name: Siemens Conference Room APIs
+      - name: Siemens Tunable White APIs
+      - name: Siemens Data APIs
+      - name: Siemens DALI Emergency APIs
+      - name: Siemens Demand Response APIs
+      - name: Siemens Inventory API
+      - name: Siemens Device Discovery API
+      - name: Siemens Gateway Onboarding API
+      - name: Siemens Authorization API
+      - name: Siemens User Configuration API
+      - name: Siemens Workflow Executor API
+      - name: Siemens Remote Access API
+      - name: Siemens Industrial Asset Link
+      - name: Siemens IE Portal API
+      - name: Siemens Admin User API
+      - name: Siemens IE Device API
+      - name: Siemens Secure Storage API
+      - name: Siemens IE Device OIDC Provider API
+      - name: Siemens Network Service
+      - name: Siemens NTP Service
+      - name: Siemens Onboard Service
+      - name: Siemens System Service
+      - name: Siemens Security Service
+      - name: Siemens Industrial Edge Data Processing APIs
+      - name: Siemens IECTL - Industrial Edge Control
+      - name: Siemens Flow Creator Configurator APIs
+      - name: Siemens Service Registry APIs
+      - name: Siemens Vision Payload Specification
+      - name: 'Siemens Server API: Device Discover API'
+      - name: 'Siemens Server API: Driver Event API'
+      - name: 'Siemens Server API: Driver Info API'
+      - name: 'Siemens Server API: Generic Data API'
+      - name: 'Siemens Client API: Registry API'
+      - name: Siemens Industrial Information Hub Essentials API
+      - name: Siemens Industrial IoT Typescript SDK
+      - name: Siemens Industrial IoT Command Line Interface
+      - name: Siemens MindConnect Node-RED Node
+      - name: Siemens Authentication Helper
+      - name: Siemens Identity Management Service
+      - name: Siemens Resource Access Management
+      - name: Siemens Message Broker Service
+      - name: Siemens Oauth Authorization Server
+      - name: Siemens Tenant Management Service
+      - name: Siemens Token Management Service
+      - name: Siemens Usage Transparency Service
+      - name: Siemens IoT File Service
+      - name: Siemens IoT Time Series Service
+      - name: Siemens IoT Time Series Subscription
+      - name: Siemens IoT Time Series Aggregates Service
+      - name: Siemens IoT Time Series Bulk Service
+      - name: Siemens Integrated Data Lake Service
+      - name: Siemens Agent Management Service
+      - name: Siemens Agent Management Async API
+      - name: Siemens MindConnect API
+      - name: Siemens MindConnect Async API
+      - name: Siemens MindConnect MQTT API
+      - name: Siemens Asset Modeler Async API
+      - name: Siemens OPC UA Pub Sub Service
+      - name: Siemens Commanding API
+      - name: Siemens Asset Management Service
+      - name: Siemens Asset Management Subscription Notification
+      - name: Siemens Event Management
+      - name: Siemens Event Management Subscription Notification
+      - name: Siemens Notification Service
+      - name: Siemens Case Management Management Service
+      - name: Siemens Visual Flow Creator Service
+      - name: Siemens Rules Management Service
+      - name: Siemens Data Exchange Service
+      - name: Siemens Job Manager Service
+      - name: Siemens Model Management Service
+      - name: Siemens Data Management Service
+      - name: Siemens Data Query Service
+      - name: Siemens Semantic Modelling Service
+      - name: Siemens Insights Hub Monitor Plugin SDK
+      - name: Siemens Industrial IoT SDK V2 for Java
+      - name: Siemens Industrial IoT SDK for Node.js
+      - name: Siemens Industrial IoT SDK for Python
+      - name: Siemens MindConnect Library V4
+      - name: Siemens User Experience Toolkit for Insights Hub and Industrial IOT
+      - name: Siemens Mcenter - Openness APIs of Applications
+      - name: Siemens Nurse Call System API
+      - name: Siemens OT Companion Asset Management API
+      - name: Siemens OT Companion Protection Settings API
+      - name: Siemens PlantSight Digital Enablement
+      - name: Siemens COMOS Walkinside Service
+      - name: Siemens Geolus Shape Search
+      - name: Siemens 3D Visualization SDK
+      - name: Siemens Simcenter Femap OEM
+      - name: Siemens Solid Edge OEM
+      - name: Siemens JT Open Toolkit (JTTK)
+      - name: Siemens PLM XML
+      - name: Siemens Polarion REST API
+      - name: Siemens Product Information Hub
+      - name: Siemens Train API
+      - name: Siemens RailXplore Fusion API
+      - name: Siemens iX React Starter App
+      - name: Siemens API Catalogue
+      - name: Siemens Node-RED Connectivity Playground
+      - name: Siemens Industrial Edge Playground
+      - name: Siemens Carbon Footprint Indicator for Transportation API
+      - name: Siemens SieSmart API
+      - name: Siemens SiGREEN Procurement API
+      - name: Siemens SiGREEN Product API
+      - name: Siemens SiGREEN MyTask API
+      - name: Siemens SiGREEN PCF (Beta) API
+      - name: Siemens SIMATIC AX Open Source
+      - name: Siemens SITRANS SCM IQ API
+      - name: Siemens Teamcenter (X) Product Cost Management REST API
+  - id: siemens-enterprise
+    name: Enterprise
+    type: enterprise
+    description: Custom-negotiated tier for Siemens. Includes dedicated capacity, contractual SLAs, security
+      review, data residency options, and named technical account management.
+    entries:
+      - label: API Requests
+        description: Negotiated request volume; -1 indicates uncapped subject to fair use
+        name: api_requests
+        type: quota
+        metric: requests
+        limit: -1
+        timeFrame: month
+        geo: configurable
+        domains:
+          - https://buildingx.siemens.com/api/v1
+        unit: 1
+        price: custom
+        userMultiplied: false
+      - label: Rate Limit
+        description: Negotiated burst and steady-state rate
+        name: rate_limit
+        type: rate
+        metric: requests_per_minute
+        limit: 1000
+        timeFrame: minute
+        geo: configurable
+        domains:
+          - https://buildingx.siemens.com/api/v1
+        unit: 1
+        price: custom
+        userMultiplied: false
+    elements:
+      - name: Unlimited / Negotiated Volume
+      - name: 24/7 Dedicated Support
+      - name: Contractual SLA
+      - name: Security & Compliance Review
+      - name: Dedicated Account Manager
+      - name: Custom Data Residency
+      - name: Siemens Airport Vertical API
+      - name: Siemens Asset Vertical API
+      - name: Siemens Baggage Vertical API
+      - name: Siemens Container Vertical API
+      - name: Siemens Flight Vertical API
+      - name: Siemens ANYmal API and SDK
+      - name: Siemens Battery Passport REST API
+      - name: Siemens Building Operations API
+      - name: Siemens Building Structure API
+      - name: Siemens Accounts API
+      - name: Siemens Fire API
+      - name: Siemens Security Activities API
+      - name: Siemens Security Identities and Privileges API
+      - name: Siemens Point Value Ingest API
+      - name: Siemens Building Geometry API
+      - name: Siemens Energy API
+      - name: Siemens Lifecycle Twin API
+      - name: Siemens COMOS Web REST API
+      - name: Siemens Charger Status API
+      - name: Siemens Charger Control API
+      - name: Siemens Remote Command API
+      - name: Siemens Reservations API
+      - name: Siemens RFID Management API
+      - name: Siemens Transaction Management API
+      - name: Siemens VDV-261 API
+      - name: Siemens Drivetrain Analyzer Cloud API
+      - name: Siemens Edge App SDK
+      - name: Siemens Occupancy APIs
+      - name: Siemens Location Services APIs
+      - name: Siemens Organization APIs
+      - name: Siemens Area APIs
+      - name: Siemens Sensor APIs
+      - name: Siemens Plugload APIs
+      - name: Siemens Sensor Bluetooth APIs
+      - name: Siemens Conference Room APIs
+      - name: Siemens Tunable White APIs
+      - name: Siemens Data APIs
+      - name: Siemens DALI Emergency APIs
+      - name: Siemens Demand Response APIs
+      - name: Siemens Inventory API
+      - name: Siemens Device Discovery API
+      - name: Siemens Gateway Onboarding API
+      - name: Siemens Authorization API
+      - name: Siemens User Configuration API
+      - name: Siemens Workflow Executor API
+      - name: Siemens Remote Access API
+      - name: Siemens Industrial Asset Link
+      - name: Siemens IE Portal API
+      - name: Siemens Admin User API
+      - name: Siemens IE Device API
+      - name: Siemens Secure Storage API
+      - name: Siemens IE Device OIDC Provider API
+      - name: Siemens Network Service
+      - name: Siemens NTP Service
+      - name: Siemens Onboard Service
+      - name: Siemens System Service
+      - name: Siemens Security Service
+      - name: Siemens Industrial Edge Data Processing APIs
+      - name: Siemens IECTL - Industrial Edge Control
+      - name: Siemens Flow Creator Configurator APIs
+      - name: Siemens Service Registry APIs
+      - name: Siemens Vision Payload Specification
+      - name: 'Siemens Server API: Device Discover API'
+      - name: 'Siemens Server API: Driver Event API'
+      - name: 'Siemens Server API: Driver Info API'
+      - name: 'Siemens Server API: Generic Data API'
+      - name: 'Siemens Client API: Registry API'
+      - name: Siemens Industrial Information Hub Essentials API
+      - name: Siemens Industrial IoT Typescript SDK
+      - name: Siemens Industrial IoT Command Line Interface
+      - name: Siemens MindConnect Node-RED Node
+      - name: Siemens Authentication Helper
+      - name: Siemens Identity Management Service
+      - name: Siemens Resource Access Management
+      - name: Siemens Message Broker Service
+      - name: Siemens Oauth Authorization Server
+      - name: Siemens Tenant Management Service
+      - name: Siemens Token Management Service
+      - name: Siemens Usage Transparency Service
+      - name: Siemens IoT File Service
+      - name: Siemens IoT Time Series Service
+      - name: Siemens IoT Time Series Subscription
+      - name: Siemens IoT Time Series Aggregates Service
+      - name: Siemens IoT Time Series Bulk Service
+      - name: Siemens Integrated Data Lake Service
+      - name: Siemens Agent Management Service
+      - name: Siemens Agent Management Async API
+      - name: Siemens MindConnect API
+      - name: Siemens MindConnect Async API
+      - name: Siemens MindConnect MQTT API
+      - name: Siemens Asset Modeler Async API
+      - name: Siemens OPC UA Pub Sub Service
+      - name: Siemens Commanding API
+      - name: Siemens Asset Management Service
+      - name: Siemens Asset Management Subscription Notification
+      - name: Siemens Event Management
+      - name: Siemens Event Management Subscription Notification
+      - name: Siemens Notification Service
+      - name: Siemens Case Management Management Service
+      - name: Siemens Visual Flow Creator Service
+      - name: Siemens Rules Management Service
+      - name: Siemens Data Exchange Service
+      - name: Siemens Job Manager Service
+      - name: Siemens Model Management Service
+      - name: Siemens Data Management Service
+      - name: Siemens Data Query Service
+      - name: Siemens Semantic Modelling Service
+      - name: Siemens Insights Hub Monitor Plugin SDK
+      - name: Siemens Industrial IoT SDK V2 for Java
+      - name: Siemens Industrial IoT SDK for Node.js
+      - name: Siemens Industrial IoT SDK for Python
+      - name: Siemens MindConnect Library V4
+      - name: Siemens User Experience Toolkit for Insights Hub and Industrial IOT
+      - name: Siemens Mcenter - Openness APIs of Applications
+      - name: Siemens Nurse Call System API
+      - name: Siemens OT Companion Asset Management API
+      - name: Siemens OT Companion Protection Settings API
+      - name: Siemens PlantSight Digital Enablement
+      - name: Siemens COMOS Walkinside Service
+      - name: Siemens Geolus Shape Search
+      - name: Siemens 3D Visualization SDK
+      - name: Siemens Simcenter Femap OEM
+      - name: Siemens Solid Edge OEM
+      - name: Siemens JT Open Toolkit (JTTK)
+      - name: Siemens PLM XML
+      - name: Siemens Polarion REST API
+      - name: Siemens Product Information Hub
+      - name: Siemens Train API
+      - name: Siemens RailXplore Fusion API
+      - name: Siemens iX React Starter App
+      - name: Siemens API Catalogue
+      - name: Siemens Node-RED Connectivity Playground
+      - name: Siemens Industrial Edge Playground
+      - name: Siemens Carbon Footprint Indicator for Transportation API
+      - name: Siemens SieSmart API
+      - name: Siemens SiGREEN Procurement API
+      - name: Siemens SiGREEN Product API
+      - name: Siemens SiGREEN MyTask API
+      - name: Siemens SiGREEN PCF (Beta) API
+      - name: Siemens SIMATIC AX Open Source
+      - name: Siemens SITRANS SCM IQ API
+      - name: Siemens Teamcenter (X) Product Cost Management REST API
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
