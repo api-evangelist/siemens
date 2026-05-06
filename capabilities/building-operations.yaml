@@ -1,274 +1,438 @@
-naftiko: "1.0.0-alpha1"
-
+naftiko: 1.0.0-alpha2
 info:
-  label: "Siemens Smart Building Operations"
-  description: >-
-    Unified workflow capability for smart building operations using the Siemens
-    Building X platform. Enables facility managers and building operations teams
-    to monitor and control building automation systems including HVAC, lighting,
-    energy management, and equipment. Covers data point monitoring, historical
-    trend analysis, alarm management, and schedule management for commercial and
-    industrial buildings.
+  label: Siemens Smart Building Operations
+  description: Unified workflow capability for smart building operations using the Siemens Building X platform. Enables facility
+    managers and building operations teams to monitor and control building automation systems including HVAC, lighting, energy
+    management, and equipment. Covers data point monitoring, historical trend analysis, alarm management, and schedule management
+    for commercial and industrial buildings.
   tags:
-    - Building Automation
-    - Smart Buildings
-    - HVAC
-    - Energy Management
-    - Facilities Management
-    - IoT
-    - BACnet
-  created: "2026-05-02"
-  modified: "2026-05-02"
-
+  - Building Automation
+  - Smart Buildings
+  - HVAC
+  - Energy Management
+  - Facilities Management
+  - IoT
+  - BACnet
+  created: '2026-05-02'
+  modified: '2026-05-06'
 binds:
-  - namespace: env
-    keys:
-      SIEMENS_BEARER_TOKEN: SIEMENS_BEARER_TOKEN
-
+- namespace: env
+  keys:
+    SIEMENS_BEARER_TOKEN: SIEMENS_BEARER_TOKEN
 capability:
   consumes:
-    - import: siemens-building
-      location: ./shared/building-operations.yaml
-
+  - type: http
+    namespace: siemens-building
+    baseUri: https://buildingx.siemens.com/api/v1
+    description: Siemens Building X Operations REST API
+    authentication:
+      type: bearer
+      token: '{{SIEMENS_BEARER_TOKEN}}'
+    resources:
+    - name: points
+      path: /points
+      description: Building data points management
+      operations:
+      - name: list-points
+        method: GET
+        description: List building data points
+        inputParameters:
+        - name: skip
+          in: query
+          type: integer
+          required: false
+          description: Records to skip
+        - name: top
+          in: query
+          type: integer
+          required: false
+          description: Maximum records to return
+        - name: filter
+          in: query
+          type: string
+          required: false
+          description: OData filter expression
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: point
+      path: /points/{pointId}
+      description: Single point operations
+      operations:
+      - name: get-point
+        method: GET
+        description: Get a building data point
+        inputParameters:
+        - name: pointId
+          in: path
+          type: string
+          required: true
+          description: Point identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: point-value
+      path: /points/{pointId}/value
+      description: Point value read/write
+      operations:
+      - name: get-point-value
+        method: GET
+        description: Get current value of a building data point
+        inputParameters:
+        - name: pointId
+          in: path
+          type: string
+          required: true
+          description: Point identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: set-point-value
+        method: PUT
+        description: Set the value of a writable building data point
+        inputParameters:
+        - name: pointId
+          in: path
+          type: string
+          required: true
+          description: Point identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data:
+            value: '{{tools.value}}'
+            priority: '{{tools.priority}}'
+    - name: point-trends
+      path: /points/{pointId}/trends
+      description: Historical trend data
+      operations:
+      - name: get-point-trend
+        method: GET
+        description: Get historical trend data for a building data point
+        inputParameters:
+        - name: pointId
+          in: path
+          type: string
+          required: true
+          description: Point identifier
+        - name: from
+          in: query
+          type: string
+          required: true
+          description: Start of time range
+        - name: to
+          in: query
+          type: string
+          required: true
+          description: End of time range
+        - name: resolution
+          in: query
+          type: string
+          required: false
+          description: Data resolution
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: alarms
+      path: /alarms
+      description: Building alarm management
+      operations:
+      - name: list-alarms
+        method: GET
+        description: List building alarms
+        inputParameters:
+        - name: status
+          in: query
+          type: string
+          required: false
+          description: Filter by alarm status
+        - name: severity
+          in: query
+          type: string
+          required: false
+          description: Filter by severity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: alarm-acknowledge
+      path: /alarms/{alarmId}/acknowledge
+      description: Alarm acknowledgment
+      operations:
+      - name: acknowledge-alarm
+        method: POST
+        description: Acknowledge a building alarm
+        inputParameters:
+        - name: alarmId
+          in: path
+          type: string
+          required: true
+          description: Alarm identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: equipment
+      path: /equipment
+      description: Building equipment management
+      operations:
+      - name: list-equipment
+        method: GET
+        description: List building equipment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: schedules
+      path: /schedules
+      description: Building automation schedules
+      operations:
+      - name: list-schedules
+        method: GET
+        description: List building automation schedules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
   exposes:
-    - type: rest
-      port: 8080
-      namespace: siemens-building-ops-api
-      description: "Unified REST API for Siemens smart building operations and automation."
-      resources:
-        - path: /v1/points
-          name: points
-          description: "Building data points monitoring"
-          operations:
-            - method: GET
-              name: list-points
-              description: "List all building data points"
-              call: "siemens-building.list-points"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/points/{pointId}
-          name: point
-          description: "Individual data point operations"
-          operations:
-            - method: GET
-              name: get-point
-              description: "Get a building data point"
-              call: "siemens-building.get-point"
-              with:
-                pointId: "rest.pointId"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/points/{pointId}/value
-          name: point-value
-          description: "Real-time point value read/write"
-          operations:
-            - method: GET
-              name: get-point-value
-              description: "Get current real-time value of a data point"
-              call: "siemens-building.get-point-value"
-              with:
-                pointId: "rest.pointId"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-            - method: PUT
-              name: set-point-value
-              description: "Set value of a writable data point (setpoint or command)"
-              call: "siemens-building.set-point-value"
-              with:
-                pointId: "rest.pointId"
-                value: "rest.value"
-                priority: "rest.priority"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/points/{pointId}/trends
-          name: trends
-          description: "Historical trend data queries"
-          operations:
-            - method: GET
-              name: get-trend
-              description: "Get historical trend data for a building data point"
-              call: "siemens-building.get-point-trend"
-              with:
-                pointId: "rest.pointId"
-                from: "rest.from"
-                to: "rest.to"
-                resolution: "rest.resolution"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/alarms
-          name: alarms
-          description: "Building alarm monitoring"
-          operations:
-            - method: GET
-              name: list-alarms
-              description: "List building alarms filtered by status and severity"
-              call: "siemens-building.list-alarms"
-              with:
-                status: "rest.status"
-                severity: "rest.severity"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/alarms/{alarmId}/acknowledge
-          name: alarm-acknowledge
-          description: "Alarm acknowledgment"
-          operations:
-            - method: POST
-              name: acknowledge-alarm
-              description: "Acknowledge a building alarm"
-              call: "siemens-building.acknowledge-alarm"
-              with:
-                alarmId: "rest.alarmId"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/equipment
-          name: equipment
-          description: "Building equipment listing"
-          operations:
-            - method: GET
-              name: list-equipment
-              description: "List building equipment including HVAC, chillers, and AHUs"
-              call: "siemens-building.list-equipment"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/schedules
-          name: schedules
-          description: "Building automation schedules"
-          operations:
-            - method: GET
-              name: list-schedules
-              description: "List building automation schedules"
-              call: "siemens-building.list-schedules"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-    - type: mcp
-      port: 9090
-      namespace: siemens-building-ops-mcp
-      transport: http
-      description: "MCP server for AI-assisted smart building operations and facility management using Siemens Building X."
-      tools:
-        - name: list-building-points
-          description: "List all building automation data points (sensors, setpoints, actuators)"
-          hints:
-            readOnly: true
-            openWorld: false
-          call: "siemens-building.list-points"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: get-building-point
-          description: "Get details of a specific building data point"
-          hints:
-            readOnly: true
-            openWorld: false
-          call: "siemens-building.get-point"
-          with:
-            pointId: "tools.pointId"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: get-point-current-value
-          description: "Get the current real-time value of a building sensor or setpoint"
-          hints:
-            readOnly: true
-            openWorld: false
-          call: "siemens-building.get-point-value"
-          with:
-            pointId: "tools.pointId"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: set-point-value
-          description: "Control a building system by setting a setpoint or actuator command"
-          hints:
-            readOnly: false
-            destructive: false
-            idempotent: true
-          call: "siemens-building.set-point-value"
-          with:
-            pointId: "tools.pointId"
-            value: "tools.value"
-            priority: "tools.priority"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: get-historical-trend
-          description: "Get historical trend data for a building sensor or setpoint over a time range"
-          hints:
-            readOnly: true
-            openWorld: false
-          call: "siemens-building.get-point-trend"
-          with:
-            pointId: "tools.pointId"
-            from: "tools.from"
-            to: "tools.to"
-            resolution: "tools.resolution"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: list-alarms
-          description: "List building alarms including HVAC faults and equipment alerts"
-          hints:
-            readOnly: true
-            openWorld: false
-          call: "siemens-building.list-alarms"
-          with:
-            status: "tools.status"
-            severity: "tools.severity"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: acknowledge-alarm
-          description: "Acknowledge a building alarm to indicate it has been noted"
-          hints:
-            readOnly: false
-            destructive: false
-            idempotent: true
-          call: "siemens-building.acknowledge-alarm"
-          with:
-            alarmId: "tools.alarmId"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: list-equipment
-          description: "List building equipment including HVAC units, chillers, air handling units, and boilers"
-          hints:
-            readOnly: true
-            openWorld: false
-          call: "siemens-building.list-equipment"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: list-schedules
-          description: "List building automation schedules controlling system operation times and setpoints"
-          hints:
-            readOnly: true
-            openWorld: false
-          call: "siemens-building.list-schedules"
-          outputParameters:
-            - type: object
-              mapping: "$."
+  - type: rest
+    port: 8080
+    namespace: siemens-building-ops-api
+    description: Unified REST API for Siemens smart building operations and automation.
+    resources:
+    - path: /v1/points
+      name: points
+      description: Building data points monitoring
+      operations:
+      - method: GET
+        name: list-points
+        description: List all building data points
+        call: siemens-building.list-points
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/points/{pointId}
+      name: point
+      description: Individual data point operations
+      operations:
+      - method: GET
+        name: get-point
+        description: Get a building data point
+        call: siemens-building.get-point
+        with:
+          pointId: rest.pointId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/points/{pointId}/value
+      name: point-value
+      description: Real-time point value read/write
+      operations:
+      - method: GET
+        name: get-point-value
+        description: Get current real-time value of a data point
+        call: siemens-building.get-point-value
+        with:
+          pointId: rest.pointId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: set-point-value
+        description: Set value of a writable data point (setpoint or command)
+        call: siemens-building.set-point-value
+        with:
+          pointId: rest.pointId
+          value: rest.value
+          priority: rest.priority
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/points/{pointId}/trends
+      name: trends
+      description: Historical trend data queries
+      operations:
+      - method: GET
+        name: get-trend
+        description: Get historical trend data for a building data point
+        call: siemens-building.get-point-trend
+        with:
+          pointId: rest.pointId
+          from: rest.from
+          to: rest.to
+          resolution: rest.resolution
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/alarms
+      name: alarms
+      description: Building alarm monitoring
+      operations:
+      - method: GET
+        name: list-alarms
+        description: List building alarms filtered by status and severity
+        call: siemens-building.list-alarms
+        with:
+          status: rest.status
+          severity: rest.severity
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/alarms/{alarmId}/acknowledge
+      name: alarm-acknowledge
+      description: Alarm acknowledgment
+      operations:
+      - method: POST
+        name: acknowledge-alarm
+        description: Acknowledge a building alarm
+        call: siemens-building.acknowledge-alarm
+        with:
+          alarmId: rest.alarmId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/equipment
+      name: equipment
+      description: Building equipment listing
+      operations:
+      - method: GET
+        name: list-equipment
+        description: List building equipment including HVAC, chillers, and AHUs
+        call: siemens-building.list-equipment
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/schedules
+      name: schedules
+      description: Building automation schedules
+      operations:
+      - method: GET
+        name: list-schedules
+        description: List building automation schedules
+        call: siemens-building.list-schedules
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: siemens-building-ops-mcp
+    transport: http
+    description: MCP server for AI-assisted smart building operations and facility management using Siemens Building X.
+    tools:
+    - name: list-building-points
+      description: List all building automation data points (sensors, setpoints, actuators)
+      hints:
+        readOnly: true
+        openWorld: false
+      call: siemens-building.list-points
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-building-point
+      description: Get details of a specific building data point
+      hints:
+        readOnly: true
+        openWorld: false
+      call: siemens-building.get-point
+      with:
+        pointId: tools.pointId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-point-current-value
+      description: Get the current real-time value of a building sensor or setpoint
+      hints:
+        readOnly: true
+        openWorld: false
+      call: siemens-building.get-point-value
+      with:
+        pointId: tools.pointId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: set-point-value
+      description: Control a building system by setting a setpoint or actuator command
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: siemens-building.set-point-value
+      with:
+        pointId: tools.pointId
+        value: tools.value
+        priority: tools.priority
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-historical-trend
+      description: Get historical trend data for a building sensor or setpoint over a time range
+      hints:
+        readOnly: true
+        openWorld: false
+      call: siemens-building.get-point-trend
+      with:
+        pointId: tools.pointId
+        from: tools.from
+        to: tools.to
+        resolution: tools.resolution
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-alarms
+      description: List building alarms including HVAC faults and equipment alerts
+      hints:
+        readOnly: true
+        openWorld: false
+      call: siemens-building.list-alarms
+      with:
+        status: tools.status
+        severity: tools.severity
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: acknowledge-alarm
+      description: Acknowledge a building alarm to indicate it has been noted
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: siemens-building.acknowledge-alarm
+      with:
+        alarmId: tools.alarmId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-equipment
+      description: List building equipment including HVAC units, chillers, air handling units, and boilers
+      hints:
+        readOnly: true
+        openWorld: false
+      call: siemens-building.list-equipment
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-schedules
+      description: List building automation schedules controlling system operation times and setpoints
+      hints:
+        readOnly: true
+        openWorld: false
+      call: siemens-building.list-schedules
+      outputParameters:
+      - type: object
+        mapping: $.
