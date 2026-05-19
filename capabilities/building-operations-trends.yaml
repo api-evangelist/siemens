@@ -1,0 +1,93 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Siemens Building Operations API — Trends
+  description: 'Siemens Building Operations API — Trends. 1 operations. Lead operation: Get Point Historical Trend Data. Self-contained
+    Naftiko capability covering one Siemens business surface.'
+  tags:
+  - Siemens
+  - Trends
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SIEMENS_API_KEY: SIEMENS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: building-operations-trends
+    baseUri: https://buildingx.siemens.com/api/v1
+    description: Siemens Building Operations API — Trends business capability. Self-contained, no shared references.
+    resources:
+    - name: points-pointId-trends
+      path: /points/{pointId}/trends
+      operations:
+      - name: getpointtrend
+        method: GET
+        description: Get Point Historical Trend Data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: from
+          in: query
+          type: string
+          description: Start of time range (ISO 8601)
+          required: true
+        - name: to
+          in: query
+          type: string
+          description: End of time range (ISO 8601)
+          required: true
+        - name: resolution
+          in: query
+          type: string
+          description: Data resolution for aggregation
+    authentication:
+      type: bearer
+      token: '{{env.SIEMENS_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: building-operations-trends-rest
+    port: 8080
+    description: REST adapter for Siemens Building Operations API — Trends. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/points/{pointid}/trends
+      name: points-pointid-trends
+      description: REST surface for points-pointId-trends.
+      operations:
+      - method: GET
+        name: getpointtrend
+        description: Get Point Historical Trend Data
+        call: building-operations-trends.getpointtrend
+        with:
+          from: rest.from
+          to: rest.to
+          resolution: rest.resolution
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: building-operations-trends-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Siemens Building Operations API — Trends. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: get-point-historical-trend-data
+      description: Get Point Historical Trend Data
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: building-operations-trends.getpointtrend
+      with:
+        from: tools.from
+        to: tools.to
+        resolution: tools.resolution
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,83 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Siemens Building Operations API — Schedules
+  description: 'Siemens Building Operations API — Schedules. 1 operations. Lead operation: List Building Schedules. Self-contained
+    Naftiko capability covering one Siemens business surface.'
+  tags:
+  - Siemens
+  - Schedules
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SIEMENS_API_KEY: SIEMENS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: building-operations-schedules
+    baseUri: https://buildingx.siemens.com/api/v1
+    description: Siemens Building Operations API — Schedules business capability. Self-contained, no shared references.
+    resources:
+    - name: schedules
+      path: /schedules
+      operations:
+      - name: listschedules
+        method: GET
+        description: List Building Schedules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: skip
+          in: query
+          type: integer
+        - name: top
+          in: query
+          type: integer
+    authentication:
+      type: bearer
+      token: '{{env.SIEMENS_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: building-operations-schedules-rest
+    port: 8080
+    description: REST adapter for Siemens Building Operations API — Schedules. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/schedules
+      name: schedules
+      description: REST surface for schedules.
+      operations:
+      - method: GET
+        name: listschedules
+        description: List Building Schedules
+        call: building-operations-schedules.listschedules
+        with:
+          skip: rest.skip
+          top: rest.top
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: building-operations-schedules-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Siemens Building Operations API — Schedules. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: list-building-schedules
+      description: List Building Schedules
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: building-operations-schedules.listschedules
+      with:
+        skip: tools.skip
+        top: tools.top
+      outputParameters:
+      - type: object
+        mapping: $.

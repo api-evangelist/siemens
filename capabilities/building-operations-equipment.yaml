@@ -1,0 +1,121 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Siemens Building Operations API — Equipment
+  description: 'Siemens Building Operations API — Equipment. 2 operations. Lead operation: List Building Equipment. Self-contained
+    Naftiko capability covering one Siemens business surface.'
+  tags:
+  - Siemens
+  - Equipment
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SIEMENS_API_KEY: SIEMENS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: building-operations-equipment
+    baseUri: https://buildingx.siemens.com/api/v1
+    description: Siemens Building Operations API — Equipment business capability. Self-contained, no shared references.
+    resources:
+    - name: equipment
+      path: /equipment
+      operations:
+      - name: listequipment
+        method: GET
+        description: List Building Equipment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: type
+          in: query
+          type: string
+          description: Filter by equipment type
+        - name: skip
+          in: query
+          type: integer
+        - name: top
+          in: query
+          type: integer
+    - name: equipment-equipmentId
+      path: /equipment/{equipmentId}
+      operations:
+      - name: getequipment
+        method: GET
+        description: Get Building Equipment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.SIEMENS_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: building-operations-equipment-rest
+    port: 8080
+    description: REST adapter for Siemens Building Operations API — Equipment. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/equipment
+      name: equipment
+      description: REST surface for equipment.
+      operations:
+      - method: GET
+        name: listequipment
+        description: List Building Equipment
+        call: building-operations-equipment.listequipment
+        with:
+          type: rest.type
+          skip: rest.skip
+          top: rest.top
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/equipment/{equipmentid}
+      name: equipment-equipmentid
+      description: REST surface for equipment-equipmentId.
+      operations:
+      - method: GET
+        name: getequipment
+        description: Get Building Equipment
+        call: building-operations-equipment.getequipment
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: building-operations-equipment-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Siemens Building Operations API — Equipment. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: list-building-equipment
+      description: List Building Equipment
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: building-operations-equipment.listequipment
+      with:
+        type: tools.type
+        skip: tools.skip
+        top: tools.top
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-building-equipment
+      description: Get Building Equipment
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: building-operations-equipment.getequipment
+      outputParameters:
+      - type: object
+        mapping: $.
