@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PointList",
+  "title": "PointList",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Point"
+      }
+    },
+    "nextLink": {
+      "type": "string",
+      "description": "URL for the next page of results"
+    }
+  }
+}

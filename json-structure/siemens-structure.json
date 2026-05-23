@@ -1,0 +1,176 @@
+{
+  "provider": "Siemens",
+  "providerId": "siemens",
+  "kind": "json-structure",
+  "description": "Structural overview of the Siemens API surface; extracted from openapi/.",
+  "schemaCount": 12,
+  "operationCount": 10,
+  "schemas": [
+    {
+      "name": "Point",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "PointList",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "PointValue",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "SetPointValueRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "value"
+      ]
+    },
+    {
+      "name": "TrendData",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "Alarm",
+      "type": "object",
+      "propertyCount": 9,
+      "required": []
+    },
+    {
+      "name": "AlarmList",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "AcknowledgeAlarmRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "Equipment",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "EquipmentList",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "Schedule",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "ScheduleList",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/points",
+      "operationId": "listPoints",
+      "summary": "List Building Data Points",
+      "tags": [
+        "Points"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/points/{pointId}",
+      "operationId": "getPoint",
+      "summary": "Get Building Data Point",
+      "tags": [
+        "Points"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/points/{pointId}/value",
+      "operationId": "getPointValue",
+      "summary": "Get Point Current Value",
+      "tags": [
+        "Points"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/points/{pointId}/value",
+      "operationId": "setPointValue",
+      "summary": "Set Point Value",
+      "tags": [
+        "Points"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/points/{pointId}/trends",
+      "operationId": "getPointTrend",
+      "summary": "Get Point Historical Trend Data",
+      "tags": [
+        "Trends"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/alarms",
+      "operationId": "listAlarms",
+      "summary": "List Building Alarms",
+      "tags": [
+        "Alarms"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/alarms/{alarmId}/acknowledge",
+      "operationId": "acknowledgeAlarm",
+      "summary": "Acknowledge Building Alarm",
+      "tags": [
+        "Alarms"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/equipment",
+      "operationId": "listEquipment",
+      "summary": "List Building Equipment",
+      "tags": [
+        "Equipment"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/equipment/{equipmentId}",
+      "operationId": "getEquipment",
+      "summary": "Get Building Equipment",
+      "tags": [
+        "Equipment"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/schedules",
+      "operationId": "listSchedules",
+      "summary": "List Building Schedules",
+      "tags": [
+        "Schedules"
+      ]
+    }
+  ]
+}

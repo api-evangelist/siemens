@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AlarmList",
+  "title": "AlarmList",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Alarm"
+      }
+    },
+    "nextLink": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Equipment",
+  "title": "Equipment",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique equipment identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Equipment name"
+    },
+    "type": {
+      "type": "string",
+      "description": "Equipment type (e.g., AHU, Chiller, Boiler)"
+    },
+    "description": {
+      "type": "string",
+      "description": "Equipment description"
+    },
+    "location": {
+      "type": "string",
+      "description": "Physical location within the building"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "operational",
+        "fault",
+        "maintenance",
+        "offline"
+      ],
+      "description": "Current operational status"
+    }
+  }
+}

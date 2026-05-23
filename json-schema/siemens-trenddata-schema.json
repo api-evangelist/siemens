@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TrendData",
+  "title": "TrendData",
+  "type": "object",
+  "properties": {
+    "pointId": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "to": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "values": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/PointValue"
+      }
+    }
+  }
+}

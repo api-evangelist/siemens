@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EquipmentList",
+  "title": "EquipmentList",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Equipment"
+      }
+    },
+    "nextLink": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Alarm",
+  "title": "Alarm",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique alarm identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Alarm name or description"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "critical",
+        "high",
+        "medium",
+        "low"
+      ],
+      "description": "Alarm severity level"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "acknowledged",
+        "resolved"
+      ],
+      "description": "Current alarm status"
+    },
+    "equipmentId": {
+      "type": "string",
+      "description": "Equipment associated with this alarm"
+    },
+    "pointId": {
+      "type": "string",
+      "description": "Data point that triggered this alarm"
+    },
+    "triggeredAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the alarm condition was first detected"
+    },
+    "acknowledgedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the alarm was acknowledged"
+    },
+    "acknowledgedBy": {
+      "type": "string",
+      "description": "User who acknowledged the alarm"
+    }
+  }
+}

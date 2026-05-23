@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Schedule",
+  "title": "Schedule",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique schedule identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Schedule name"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "weekly",
+        "exception",
+        "calendar"
+      ],
+      "description": "Schedule type"
+    },
+    "effectiveFrom": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "effectiveTo": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

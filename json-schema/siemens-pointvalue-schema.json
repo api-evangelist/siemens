@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PointValue",
+  "title": "PointValue",
+  "type": "object",
+  "properties": {
+    "value": {
+      "description": "Current value (type depends on point type)",
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When this value was recorded"
+    },
+    "quality": {
+      "type": "string",
+      "enum": [
+        "good",
+        "bad",
+        "uncertain"
+      ],
+      "description": "Data quality indicator"
+    }
+  }
+}
