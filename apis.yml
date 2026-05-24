@@ -1213,6 +1213,8 @@ common:
   url: https://github.com/siemens
 - type: Documentation
   url: https://developer.siemens.com/
+- type: LLMsTxt
+  url: https://developer.siemens.com/llms.txt
 description: Siemens is a global powerhouse in the fields of electrification, automation and digitalization. The company offers
   a broad portfolio of products, solutions and services that enable customers to increase their efficiency and sustainability.
   Siemens operates in a variety of sectors including energy, healthcare, infrastructure, and industry. With a focus on innovation
