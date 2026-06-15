@@ -1,0 +1,320 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Siemens Building Operations API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Points",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Building Data Points",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://buildingx.siemens.com/api/v1/points",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination"
+              },
+              {
+                "name": "top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression for filtering points"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of building data points visible to the authenticated application. Data points represent individual sensor readings, setpoints, and actuator states from building automation systems."
+        },
+        {
+          "info": {
+            "name": "Get Building Data Point",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://buildingx.siemens.com/api/v1/points/:pointId",
+            "params": [
+              {
+                "name": "pointId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the building data point"
+              }
+            ]
+          },
+          "docs": "Returns the details and current value of a specific building data point by its unique identifier."
+        },
+        {
+          "info": {
+            "name": "Get Point Current Value",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://buildingx.siemens.com/api/v1/points/:pointId/value",
+            "params": [
+              {
+                "name": "pointId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the building data point"
+              }
+            ]
+          },
+          "docs": "Returns the current real-time value of a building data point."
+        },
+        {
+          "info": {
+            "name": "Set Point Value",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://buildingx.siemens.com/api/v1/points/:pointId/value",
+            "params": [
+              {
+                "name": "pointId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the building data point"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sets the value of a writable building data point such as a setpoint or actuator command. Only points with write permissions can be modified."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Trends",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Point Historical Trend Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://buildingx.siemens.com/api/v1/points/:pointId/trends",
+            "params": [
+              {
+                "name": "pointId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the building data point"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start of time range (ISO 8601)"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End of time range (ISO 8601)"
+              },
+              {
+                "name": "resolution",
+                "value": "",
+                "type": "query",
+                "description": "Data resolution for aggregation"
+              }
+            ]
+          },
+          "docs": "Returns historical trend data for a building data point over a specified time range. Data is returned as timestamped value pairs."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Alarms",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Building Alarms",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://buildingx.siemens.com/api/v1/alarms",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter alarms by status"
+              },
+              {
+                "name": "severity",
+                "value": "",
+                "type": "query",
+                "description": "Filter alarms by severity level"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Return alarms from this timestamp"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "top",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of active and historical building alarms. Alarms represent abnormal conditions in building systems requiring attention."
+        },
+        {
+          "info": {
+            "name": "Acknowledge Building Alarm",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://buildingx.siemens.com/api/v1/alarms/:alarmId/acknowledge",
+            "params": [
+              {
+                "name": "alarmId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the building alarm"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Acknowledges an active building alarm, indicating that the condition has been noted and is being addressed."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Equipment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Building Equipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://buildingx.siemens.com/api/v1/equipment",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by equipment type"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "top",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of building equipment including HVAC units, air handling units, chillers, boilers, and other mechanical systems managed by the building automation system."
+        },
+        {
+          "info": {
+            "name": "Get Building Equipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://buildingx.siemens.com/api/v1/equipment/:equipmentId",
+            "params": [
+              {
+                "name": "equipmentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the building equipment"
+              }
+            ]
+          },
+          "docs": "Returns details of a specific piece of building equipment including its type, associated data points, and current operational status."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Schedules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Building Schedules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://buildingx.siemens.com/api/v1/schedules",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "top",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of building automation schedules that control when systems operate and at what setpoints."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
