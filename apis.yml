@@ -1360,13 +1360,13 @@ common:
     url: https://www.linkedin.com/company/siemens
   - type: Website
     url: https://www.siemens.com
-  - type: Developer Portal
+  - type: DeveloperPortal
     url: https://developer.siemens.com/
   - type: GitHub
     url: https://github.com/siemens
   - type: Documentation
     url: https://developer.siemens.com/
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://developer.siemens.com/llms.txt
 description: >-
   Siemens is a global powerhouse in the fields of electrification, automation and digitalization. The company offers a
