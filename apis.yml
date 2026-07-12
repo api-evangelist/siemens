@@ -1356,6 +1356,12 @@ created: '2024-11-08'
 modified: '2026-05-19'
 position: Consuming
 common:
+  - type: VulnerabilityDisclosure
+    url: security/siemens-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/siemens-domain-security.yml
+  - type: Authentication
+    url: authentication/siemens-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/siemens
   - type: Website
@@ -1368,6 +1374,8 @@ common:
     url: https://developer.siemens.com/
   - type: LlmsText
     url: https://developer.siemens.com/llms.txt
+  - type: Blog
+    url: https://blog.siemens.com/feed/
 description: >-
   Siemens is a global powerhouse in the fields of electrification, automation and digitalization. The company offers a
   broad portfolio of products, solutions and services that enable customers to increase their efficiency and
