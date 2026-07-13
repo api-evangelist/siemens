@@ -1,0 +1,21 @@
+{
+  "repo": "siemens",
+  "feeds": [
+    {
+      "source": "https://blog.siemens.com/feed/",
+      "feed_url": "https://blog.siemens.com/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://developer.siemens.com/llms.txt",
+      "feed_url": "https://developer.siemens.com/llms.txt",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 63
+}
