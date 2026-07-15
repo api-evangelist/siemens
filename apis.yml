@@ -1356,6 +1356,8 @@ created: '2024-11-08'
 modified: '2026-05-19'
 position: Consuming
 common:
+  - type: AgenticAccess
+    url: agentic-access/siemens-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/siemens-vulnerability-disclosure.yml
   - type: DomainSecurity
