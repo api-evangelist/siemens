@@ -1,0 +1,124 @@
+openapi: 3.1.0
+info:
+  title: Siemens Building Operations Alarms Equipment API
+  description: The Siemens Building Operations API is part of the Building X openness platform that enables integration with Siemens building automation systems. The API provides access to building operational data including HVAC systems, lighting, energy management, and building equipment monitoring. It enables facility managers and building operations teams to read sensor data, control building systems, receive alerts, and integrate with third-party applications for smart building use cases.
+  version: '1.0'
+  contact:
+    name: Siemens Building X Developer Support
+    url: https://developer.siemens.com/building-x-openness/api/building-operations/overview.html
+  termsOfService: https://www.siemens.com/global/en/general/legal-notices.html
+servers:
+- url: https://buildingx.siemens.com/api/v1
+  description: Siemens Building X Production API
+security:
+- BearerAuth: []
+tags:
+- name: Equipment
+  description: Building equipment management including HVAC units, chillers, AHUs, and other mechanical systems.
+paths:
+  /equipment:
+    get:
+      operationId: listEquipment
+      summary: List Building Equipment
+      description: Returns a list of building equipment including HVAC units, air handling units, chillers, boilers, and other mechanical systems managed by the building automation system.
+      tags:
+      - Equipment
+      parameters:
+      - name: type
+        in: query
+        schema:
+          type: string
+        description: Filter by equipment type
+      - name: skip
+        in: query
+        schema:
+          type: integer
+          default: 0
+      - name: top
+        in: query
+        schema:
+          type: integer
+          default: 50
+      responses:
+        '200':
+          description: List of equipment returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EquipmentList'
+        '401':
+          description: Unauthorized
+  /equipment/{equipmentId}:
+    get:
+      operationId: getEquipment
+      summary: Get Building Equipment
+      description: Returns details of a specific piece of building equipment including its type, associated data points, and current operational status.
+      tags:
+      - Equipment
+      parameters:
+      - $ref: '#/components/parameters/equipmentId'
+      responses:
+        '200':
+          description: Equipment details returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Equipment'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Equipment not found
+components:
+  schemas:
+    EquipmentList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Equipment'
+        nextLink:
+          type: string
+    Equipment:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique equipment identifier
+        name:
+          type: string
+          description: Equipment name
+        type:
+          type: string
+          description: Equipment type (e.g., AHU, Chiller, Boiler)
+        description:
+          type: string
+          description: Equipment description
+        location:
+          type: string
+          description: Physical location within the building
+        status:
+          type: string
+          enum:
+          - operational
+          - fault
+          - maintenance
+          - offline
+          description: Current operational status
+  parameters:
+    equipmentId:
+      name: equipmentId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique identifier of the building equipment
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: OAuth 2.0 Bearer token from Siemens Building X identity service
+externalDocs:
+  description: Siemens Building Operations API Documentation
+  url: https://developer.siemens.com/building-x-openness/api/building-operations/overview.html

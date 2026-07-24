@@ -1,0 +1,222 @@
+openapi: 3.1.0
+info:
+  title: Siemens Building Operations Alarms Points API
+  description: The Siemens Building Operations API is part of the Building X openness platform that enables integration with Siemens building automation systems. The API provides access to building operational data including HVAC systems, lighting, energy management, and building equipment monitoring. It enables facility managers and building operations teams to read sensor data, control building systems, receive alerts, and integrate with third-party applications for smart building use cases.
+  version: '1.0'
+  contact:
+    name: Siemens Building X Developer Support
+    url: https://developer.siemens.com/building-x-openness/api/building-operations/overview.html
+  termsOfService: https://www.siemens.com/global/en/general/legal-notices.html
+servers:
+- url: https://buildingx.siemens.com/api/v1
+  description: Siemens Building X Production API
+security:
+- BearerAuth: []
+tags:
+- name: Points
+  description: Building data points representing individual sensor readings, setpoints, and actuator states within a building automation system.
+paths:
+  /points:
+    get:
+      operationId: listPoints
+      summary: List Building Data Points
+      description: Returns a paginated list of building data points visible to the authenticated application. Data points represent individual sensor readings, setpoints, and actuator states from building automation systems.
+      tags:
+      - Points
+      parameters:
+      - name: skip
+        in: query
+        schema:
+          type: integer
+          default: 0
+        description: Number of records to skip for pagination
+      - name: top
+        in: query
+        schema:
+          type: integer
+          default: 50
+          maximum: 1000
+        description: Maximum number of records to return
+      - name: filter
+        in: query
+        schema:
+          type: string
+        description: OData filter expression for filtering points
+      responses:
+        '200':
+          description: List of data points returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PointList'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Insufficient permissions
+  /points/{pointId}:
+    get:
+      operationId: getPoint
+      summary: Get Building Data Point
+      description: Returns the details and current value of a specific building data point by its unique identifier.
+      tags:
+      - Points
+      parameters:
+      - $ref: '#/components/parameters/pointId'
+      responses:
+        '200':
+          description: Data point details returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Point'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Point not found
+  /points/{pointId}/value:
+    get:
+      operationId: getPointValue
+      summary: Get Point Current Value
+      description: Returns the current real-time value of a building data point.
+      tags:
+      - Points
+      parameters:
+      - $ref: '#/components/parameters/pointId'
+      responses:
+        '200':
+          description: Current point value returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PointValue'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Point not found
+    put:
+      operationId: setPointValue
+      summary: Set Point Value
+      description: Sets the value of a writable building data point such as a setpoint or actuator command. Only points with write permissions can be modified.
+      tags:
+      - Points
+      parameters:
+      - $ref: '#/components/parameters/pointId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetPointValueRequest'
+      responses:
+        '200':
+          description: Point value set successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PointValue'
+        '400':
+          description: Invalid value for point type
+        '401':
+          description: Unauthorized
+        '403':
+          description: Point is read-only or insufficient permissions
+        '404':
+          description: Point not found
+components:
+  schemas:
+    PointValue:
+      type: object
+      properties:
+        value:
+          description: Current value (type depends on point type)
+          oneOf:
+          - type: number
+          - type: boolean
+          - type: string
+        timestamp:
+          type: string
+          format: date-time
+          description: When this value was recorded
+        quality:
+          type: string
+          enum:
+          - good
+          - bad
+          - uncertain
+          description: Data quality indicator
+    SetPointValueRequest:
+      type: object
+      required:
+      - value
+      properties:
+        value:
+          description: New value to set
+          oneOf:
+          - type: number
+          - type: boolean
+          - type: string
+        priority:
+          type: integer
+          minimum: 1
+          maximum: 16
+          description: BACnet priority level for the write command
+    PointList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Point'
+        nextLink:
+          type: string
+          description: URL for the next page of results
+    Point:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the data point
+        name:
+          type: string
+          description: Human-readable name of the data point
+        description:
+          type: string
+          description: Description of what the data point measures or controls
+        type:
+          type: string
+          enum:
+          - analog-input
+          - analog-output
+          - binary-input
+          - binary-output
+          - multistate-input
+          - multistate-output
+          description: BACnet point type classification
+        unit:
+          type: string
+          description: Engineering unit (e.g., degC, Pa, m3/h)
+        currentValue:
+          $ref: '#/components/schemas/PointValue'
+        writable:
+          type: boolean
+          description: Whether this point accepts write commands
+        equipmentId:
+          type: string
+          description: ID of the equipment this point belongs to
+  parameters:
+    pointId:
+      name: pointId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique identifier of the building data point
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: OAuth 2.0 Bearer token from Siemens Building X identity service
+externalDocs:
+  description: Siemens Building Operations API Documentation
+  url: https://developer.siemens.com/building-x-openness/api/building-operations/overview.html

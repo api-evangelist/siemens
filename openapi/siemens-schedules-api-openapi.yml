@@ -1,0 +1,87 @@
+openapi: 3.1.0
+info:
+  title: Siemens Building Operations Alarms Schedules API
+  description: The Siemens Building Operations API is part of the Building X openness platform that enables integration with Siemens building automation systems. The API provides access to building operational data including HVAC systems, lighting, energy management, and building equipment monitoring. It enables facility managers and building operations teams to read sensor data, control building systems, receive alerts, and integrate with third-party applications for smart building use cases.
+  version: '1.0'
+  contact:
+    name: Siemens Building X Developer Support
+    url: https://developer.siemens.com/building-x-openness/api/building-operations/overview.html
+  termsOfService: https://www.siemens.com/global/en/general/legal-notices.html
+servers:
+- url: https://buildingx.siemens.com/api/v1
+  description: Siemens Building X Production API
+security:
+- BearerAuth: []
+tags:
+- name: Schedules
+  description: Building automation schedules controlling when systems operate and at what setpoints.
+paths:
+  /schedules:
+    get:
+      operationId: listSchedules
+      summary: List Building Schedules
+      description: Returns a list of building automation schedules that control when systems operate and at what setpoints.
+      tags:
+      - Schedules
+      parameters:
+      - name: skip
+        in: query
+        schema:
+          type: integer
+          default: 0
+      - name: top
+        in: query
+        schema:
+          type: integer
+          default: 50
+      responses:
+        '200':
+          description: List of schedules returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScheduleList'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    ScheduleList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Schedule'
+        nextLink:
+          type: string
+    Schedule:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique schedule identifier
+        name:
+          type: string
+          description: Schedule name
+        type:
+          type: string
+          enum:
+          - weekly
+          - exception
+          - calendar
+          description: Schedule type
+        effectiveFrom:
+          type: string
+          format: date-time
+        effectiveTo:
+          type: string
+          format: date-time
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: OAuth 2.0 Bearer token from Siemens Building X identity service
+externalDocs:
+  description: Siemens Building Operations API Documentation
+  url: https://developer.siemens.com/building-x-openness/api/building-operations/overview.html
