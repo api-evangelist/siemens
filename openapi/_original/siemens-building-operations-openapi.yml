@@ -1,0 +1,644 @@
+openapi: 3.1.0
+info:
+  title: Siemens Building Operations API
+  description: >-
+    The Siemens Building Operations API is part of the Building X openness
+    platform that enables integration with Siemens building automation systems.
+    The API provides access to building operational data including HVAC systems,
+    lighting, energy management, and building equipment monitoring. It enables
+    facility managers and building operations teams to read sensor data, control
+    building systems, receive alerts, and integrate with third-party applications
+    for smart building use cases.
+  version: '1.0'
+  contact:
+    name: Siemens Building X Developer Support
+    url: https://developer.siemens.com/building-x-openness/api/building-operations/overview.html
+  termsOfService: https://www.siemens.com/global/en/general/legal-notices.html
+externalDocs:
+  description: Siemens Building Operations API Documentation
+  url: https://developer.siemens.com/building-x-openness/api/building-operations/overview.html
+servers:
+  - url: https://buildingx.siemens.com/api/v1
+    description: Siemens Building X Production API
+tags:
+  - name: Points
+    description: >-
+      Building data points representing individual sensor readings, setpoints,
+      and actuator states within a building automation system.
+  - name: Alarms
+    description: >-
+      Building alarm and alert management for monitoring critical equipment
+      conditions and building system faults.
+  - name: Trends
+    description: >-
+      Historical trend data for building system data points over specified
+      time ranges.
+  - name: Equipment
+    description: >-
+      Building equipment management including HVAC units, chillers, AHUs,
+      and other mechanical systems.
+  - name: Schedules
+    description: >-
+      Building automation schedules controlling when systems operate and
+      at what setpoints.
+security:
+  - BearerAuth: []
+paths:
+  /points:
+    get:
+      operationId: listPoints
+      summary: List Building Data Points
+      description: >-
+        Returns a paginated list of building data points visible to the
+        authenticated application. Data points represent individual sensor
+        readings, setpoints, and actuator states from building automation
+        systems.
+      tags:
+        - Points
+      parameters:
+        - name: skip
+          in: query
+          schema:
+            type: integer
+            default: 0
+          description: Number of records to skip for pagination
+        - name: top
+          in: query
+          schema:
+            type: integer
+            default: 50
+            maximum: 1000
+          description: Maximum number of records to return
+        - name: filter
+          in: query
+          schema:
+            type: string
+          description: OData filter expression for filtering points
+      responses:
+        '200':
+          description: List of data points returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PointList'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Insufficient permissions
+
+  /points/{pointId}:
+    get:
+      operationId: getPoint
+      summary: Get Building Data Point
+      description: >-
+        Returns the details and current value of a specific building data
+        point by its unique identifier.
+      tags:
+        - Points
+      parameters:
+        - $ref: '#/components/parameters/pointId'
+      responses:
+        '200':
+          description: Data point details returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Point'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Point not found
+
+  /points/{pointId}/value:
+    get:
+      operationId: getPointValue
+      summary: Get Point Current Value
+      description: >-
+        Returns the current real-time value of a building data point.
+      tags:
+        - Points
+      parameters:
+        - $ref: '#/components/parameters/pointId'
+      responses:
+        '200':
+          description: Current point value returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PointValue'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Point not found
+    put:
+      operationId: setPointValue
+      summary: Set Point Value
+      description: >-
+        Sets the value of a writable building data point such as a setpoint
+        or actuator command. Only points with write permissions can be modified.
+      tags:
+        - Points
+      parameters:
+        - $ref: '#/components/parameters/pointId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetPointValueRequest'
+      responses:
+        '200':
+          description: Point value set successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PointValue'
+        '400':
+          description: Invalid value for point type
+        '401':
+          description: Unauthorized
+        '403':
+          description: Point is read-only or insufficient permissions
+        '404':
+          description: Point not found
+
+  /points/{pointId}/trends:
+    get:
+      operationId: getPointTrend
+      summary: Get Point Historical Trend Data
+      description: >-
+        Returns historical trend data for a building data point over a specified
+        time range. Data is returned as timestamped value pairs.
+      tags:
+        - Trends
+      parameters:
+        - $ref: '#/components/parameters/pointId'
+        - name: from
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date-time
+          description: Start of time range (ISO 8601)
+        - name: to
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date-time
+          description: End of time range (ISO 8601)
+        - name: resolution
+          in: query
+          schema:
+            type: string
+            enum:
+              - raw
+              - minute
+              - hour
+              - day
+          description: Data resolution for aggregation
+      responses:
+        '200':
+          description: Historical trend data returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrendData'
+        '400':
+          description: Invalid time range parameters
+        '401':
+          description: Unauthorized
+        '404':
+          description: Point not found
+
+  /alarms:
+    get:
+      operationId: listAlarms
+      summary: List Building Alarms
+      description: >-
+        Returns a list of active and historical building alarms. Alarms
+        represent abnormal conditions in building systems requiring attention.
+      tags:
+        - Alarms
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum:
+              - active
+              - acknowledged
+              - resolved
+          description: Filter alarms by status
+        - name: severity
+          in: query
+          schema:
+            type: string
+            enum:
+              - critical
+              - high
+              - medium
+              - low
+          description: Filter alarms by severity level
+        - name: from
+          in: query
+          schema:
+            type: string
+            format: date-time
+          description: Return alarms from this timestamp
+        - name: skip
+          in: query
+          schema:
+            type: integer
+            default: 0
+        - name: top
+          in: query
+          schema:
+            type: integer
+            default: 50
+      responses:
+        '200':
+          description: List of alarms returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlarmList'
+        '401':
+          description: Unauthorized
+
+  /alarms/{alarmId}/acknowledge:
+    post:
+      operationId: acknowledgeAlarm
+      summary: Acknowledge Building Alarm
+      description: >-
+        Acknowledges an active building alarm, indicating that the condition
+        has been noted and is being addressed.
+      tags:
+        - Alarms
+      parameters:
+        - $ref: '#/components/parameters/alarmId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AcknowledgeAlarmRequest'
+      responses:
+        '200':
+          description: Alarm acknowledged successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Alarm'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Alarm not found
+
+  /equipment:
+    get:
+      operationId: listEquipment
+      summary: List Building Equipment
+      description: >-
+        Returns a list of building equipment including HVAC units, air handling
+        units, chillers, boilers, and other mechanical systems managed by the
+        building automation system.
+      tags:
+        - Equipment
+      parameters:
+        - name: type
+          in: query
+          schema:
+            type: string
+          description: Filter by equipment type
+        - name: skip
+          in: query
+          schema:
+            type: integer
+            default: 0
+        - name: top
+          in: query
+          schema:
+            type: integer
+            default: 50
+      responses:
+        '200':
+          description: List of equipment returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EquipmentList'
+        '401':
+          description: Unauthorized
+
+  /equipment/{equipmentId}:
+    get:
+      operationId: getEquipment
+      summary: Get Building Equipment
+      description: >-
+        Returns details of a specific piece of building equipment including
+        its type, associated data points, and current operational status.
+      tags:
+        - Equipment
+      parameters:
+        - $ref: '#/components/parameters/equipmentId'
+      responses:
+        '200':
+          description: Equipment details returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Equipment'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Equipment not found
+
+  /schedules:
+    get:
+      operationId: listSchedules
+      summary: List Building Schedules
+      description: >-
+        Returns a list of building automation schedules that control when
+        systems operate and at what setpoints.
+      tags:
+        - Schedules
+      parameters:
+        - name: skip
+          in: query
+          schema:
+            type: integer
+            default: 0
+        - name: top
+          in: query
+          schema:
+            type: integer
+            default: 50
+      responses:
+        '200':
+          description: List of schedules returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScheduleList'
+        '401':
+          description: Unauthorized
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: OAuth 2.0 Bearer token from Siemens Building X identity service
+
+  parameters:
+    pointId:
+      name: pointId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique identifier of the building data point
+    alarmId:
+      name: alarmId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique identifier of the building alarm
+    equipmentId:
+      name: equipmentId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique identifier of the building equipment
+
+  schemas:
+    Point:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the data point
+        name:
+          type: string
+          description: Human-readable name of the data point
+        description:
+          type: string
+          description: Description of what the data point measures or controls
+        type:
+          type: string
+          enum:
+            - analog-input
+            - analog-output
+            - binary-input
+            - binary-output
+            - multistate-input
+            - multistate-output
+          description: BACnet point type classification
+        unit:
+          type: string
+          description: Engineering unit (e.g., degC, Pa, m3/h)
+        currentValue:
+          $ref: '#/components/schemas/PointValue'
+        writable:
+          type: boolean
+          description: Whether this point accepts write commands
+        equipmentId:
+          type: string
+          description: ID of the equipment this point belongs to
+
+    PointList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Point'
+        nextLink:
+          type: string
+          description: URL for the next page of results
+
+    PointValue:
+      type: object
+      properties:
+        value:
+          description: Current value (type depends on point type)
+          oneOf:
+            - type: number
+            - type: boolean
+            - type: string
+        timestamp:
+          type: string
+          format: date-time
+          description: When this value was recorded
+        quality:
+          type: string
+          enum:
+            - good
+            - bad
+            - uncertain
+          description: Data quality indicator
+
+    SetPointValueRequest:
+      type: object
+      required:
+        - value
+      properties:
+        value:
+          description: New value to set
+          oneOf:
+            - type: number
+            - type: boolean
+            - type: string
+        priority:
+          type: integer
+          minimum: 1
+          maximum: 16
+          description: BACnet priority level for the write command
+
+    TrendData:
+      type: object
+      properties:
+        pointId:
+          type: string
+        from:
+          type: string
+          format: date-time
+        to:
+          type: string
+          format: date-time
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/PointValue'
+
+    Alarm:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique alarm identifier
+        name:
+          type: string
+          description: Alarm name or description
+        severity:
+          type: string
+          enum:
+            - critical
+            - high
+            - medium
+            - low
+          description: Alarm severity level
+        status:
+          type: string
+          enum:
+            - active
+            - acknowledged
+            - resolved
+          description: Current alarm status
+        equipmentId:
+          type: string
+          description: Equipment associated with this alarm
+        pointId:
+          type: string
+          description: Data point that triggered this alarm
+        triggeredAt:
+          type: string
+          format: date-time
+          description: When the alarm condition was first detected
+        acknowledgedAt:
+          type: string
+          format: date-time
+          description: When the alarm was acknowledged
+        acknowledgedBy:
+          type: string
+          description: User who acknowledged the alarm
+
+    AlarmList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alarm'
+        nextLink:
+          type: string
+
+    AcknowledgeAlarmRequest:
+      type: object
+      properties:
+        comment:
+          type: string
+          description: Optional comment about the acknowledgment action
+
+    Equipment:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique equipment identifier
+        name:
+          type: string
+          description: Equipment name
+        type:
+          type: string
+          description: Equipment type (e.g., AHU, Chiller, Boiler)
+        description:
+          type: string
+          description: Equipment description
+        location:
+          type: string
+          description: Physical location within the building
+        status:
+          type: string
+          enum:
+            - operational
+            - fault
+            - maintenance
+            - offline
+          description: Current operational status
+
+    EquipmentList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Equipment'
+        nextLink:
+          type: string
+
+    Schedule:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique schedule identifier
+        name:
+          type: string
+          description: Schedule name
+        type:
+          type: string
+          enum:
+            - weekly
+            - exception
+            - calendar
+          description: Schedule type
+        effectiveFrom:
+          type: string
+          format: date-time
+        effectiveTo:
+          type: string
+          format: date-time
+
+    ScheduleList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Schedule'
+        nextLink:
+          type: string

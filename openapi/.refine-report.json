@@ -1,0 +1,22 @@
+{
+  "provider": "siemens",
+  "sources": [
+    "siemens-alarms-api-openapi.yml",
+    "siemens-equipment-api-openapi.yml",
+    "siemens-points-api-openapi.yml",
+    "siemens-schedules-api-openapi.yml",
+    "siemens-trends-api-openapi.yml"
+  ],
+  "outputs": [
+    "siemens-alarms-api-openapi.yml",
+    "siemens-equipment-api-openapi.yml",
+    "siemens-points-api-openapi.yml",
+    "siemens-schedules-api-openapi.yml",
+    "siemens-trends-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
