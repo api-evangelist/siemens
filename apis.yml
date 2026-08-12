@@ -1447,8 +1447,6 @@ apis:
     url: https://developer.siemens.com/building-x-openness/api/building-operations/overview.html
   - type: SpectralRules
     url: rules/siemens-rules.yml
-  - type: Capabilities
-    url: capabilities/building-operations.yaml
   - type: JSONSchema
     url: json-schema/siemens-building-point-schema.json
   - type: JSONLD
@@ -1470,8 +1468,6 @@ apis:
     url: https://developer.siemens.com/building-x-openness/api/building-operations/overview.html
   - type: SpectralRules
     url: rules/siemens-rules.yml
-  - type: Capabilities
-    url: capabilities/building-operations.yaml
   - type: JSONSchema
     url: json-schema/siemens-building-point-schema.json
   - type: JSONLD
@@ -1494,8 +1490,6 @@ apis:
     url: https://developer.siemens.com/building-x-openness/api/building-operations/overview.html
   - type: SpectralRules
     url: rules/siemens-rules.yml
-  - type: Capabilities
-    url: capabilities/building-operations.yaml
   - type: JSONSchema
     url: json-schema/siemens-building-point-schema.json
   - type: JSONLD
@@ -1516,8 +1510,6 @@ apis:
     url: https://developer.siemens.com/building-x-openness/api/building-operations/overview.html
   - type: SpectralRules
     url: rules/siemens-rules.yml
-  - type: Capabilities
-    url: capabilities/building-operations.yaml
   - type: JSONSchema
     url: json-schema/siemens-building-point-schema.json
   - type: JSONLD
@@ -1538,8 +1530,6 @@ apis:
     url: https://developer.siemens.com/building-x-openness/api/building-operations/overview.html
   - type: SpectralRules
     url: rules/siemens-rules.yml
-  - type: Capabilities
-    url: capabilities/building-operations.yaml
   - type: JSONSchema
     url: json-schema/siemens-building-point-schema.json
   - type: JSONLD
