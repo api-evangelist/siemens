@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Siemens Building Operations Alarms Schedules API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Schedules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Building Schedules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://buildingx.siemens.com/api/v1/schedules",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "top",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of building automation schedules that control when systems operate and at what setpoints."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

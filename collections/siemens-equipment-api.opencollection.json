@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Siemens Building Operations Alarms Equipment API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Equipment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Building Equipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://buildingx.siemens.com/api/v1/equipment",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by equipment type"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "top",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of building equipment including HVAC units, air handling units, chillers, boilers, and other mechanical systems managed by the building automation system."
+        },
+        {
+          "info": {
+            "name": "Get Building Equipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://buildingx.siemens.com/api/v1/equipment/:equipmentId",
+            "params": [
+              {
+                "name": "equipmentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the building equipment"
+              }
+            ]
+          },
+          "docs": "Returns details of a specific piece of building equipment including its type, associated data points, and current operational status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,88 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Siemens Building Operations Alarms API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Alarms",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Building Alarms",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://buildingx.siemens.com/api/v1/alarms",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter alarms by status"
+              },
+              {
+                "name": "severity",
+                "value": "",
+                "type": "query",
+                "description": "Filter alarms by severity level"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Return alarms from this timestamp"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "top",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of active and historical building alarms. Alarms represent abnormal conditions in building systems requiring attention."
+        },
+        {
+          "info": {
+            "name": "Acknowledge Building Alarm",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://buildingx.siemens.com/api/v1/alarms/:alarmId/acknowledge",
+            "params": [
+              {
+                "name": "alarmId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the building alarm"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Acknowledges an active building alarm, indicating that the condition has been noted and is being addressed."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Siemens Building Operations Alarms Points API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Points",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Building Data Points",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://buildingx.siemens.com/api/v1/points",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination"
+              },
+              {
+                "name": "top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression for filtering points"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of building data points visible to the authenticated application. Data points represent individual sensor readings, setpoints, and actuator states from building automation systems."
+        },
+        {
+          "info": {
+            "name": "Get Building Data Point",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://buildingx.siemens.com/api/v1/points/:pointId",
+            "params": [
+              {
+                "name": "pointId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the building data point"
+              }
+            ]
+          },
+          "docs": "Returns the details and current value of a specific building data point by its unique identifier."
+        },
+        {
+          "info": {
+            "name": "Get Point Current Value",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://buildingx.siemens.com/api/v1/points/:pointId/value",
+            "params": [
+              {
+                "name": "pointId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the building data point"
+              }
+            ]
+          },
+          "docs": "Returns the current real-time value of a building data point."
+        },
+        {
+          "info": {
+            "name": "Set Point Value",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://buildingx.siemens.com/api/v1/points/:pointId/value",
+            "params": [
+              {
+                "name": "pointId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the building data point"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sets the value of a writable building data point such as a setpoint or actuator command. Only points with write permissions can be modified."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

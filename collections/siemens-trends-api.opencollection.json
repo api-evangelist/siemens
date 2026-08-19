@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Siemens Building Operations Alarms Trends API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Trends",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Point Historical Trend Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://buildingx.siemens.com/api/v1/points/:pointId/trends",
+            "params": [
+              {
+                "name": "pointId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the building data point"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start of time range (ISO 8601)"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End of time range (ISO 8601)"
+              },
+              {
+                "name": "resolution",
+                "value": "",
+                "type": "query",
+                "description": "Data resolution for aggregation"
+              }
+            ]
+          },
+          "docs": "Returns historical trend data for a building data point over a specified time range. Data is returned as timestamped value pairs."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
