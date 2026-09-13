@@ -1,0 +1,35 @@
+generated: '2026-09-11'
+method: probed
+source: https://mcp.siemens.com/mcp
+status: published
+server:
+  name: siemens
+  transport: http
+  url: https://mcp.siemens.com/mcp
+deployment:
+  mode: remote
+  endpoint: https://mcp.siemens.com/mcp
+  verified: probed
+  probe: live
+  checked: '2026-09-11'
+  source: docs-check 2026-09-11 (endpoint found in the provider's own documentation, then probed)
+tools_count: 8
+tools:
+- name: siemens_assets
+  description: ''
+- name: siemens_developer_search
+  description: ''
+- name: siemens_developer_discover
+  description: ''
+- name: siemens_developer_reference
+  description: ''
+- name: siemens_aiSearch
+  description: ''
+- name: siemens_productSearch
+  description: ''
+- name: siemens_search
+  description: ''
+- name: siemens_get_web_content
+  description: ''
+tools_source: live tools/list via initialize handshake, 2026-09-11 (signals/audit_mcp_authorship.py --probe)
+authorship: provider
