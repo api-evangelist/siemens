@@ -1260,6 +1260,8 @@ apis:
   humanURL: https://developer.siemens.com/adh/airport-vertical/index.html
   baseURL: https://buildingx.siemens.com/api/v1
   tags:
+  - Schedule
+  tags_raw:
   - Schedules
   properties:
   - type: OpenAPI
