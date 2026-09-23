@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Siemens Building Operations Alarms Trends API
+  title: Siemens Building Operations Trends API
   description: The Siemens Building Operations API is part of the Building X openness platform that enables integration with Siemens building automation systems. The API provides access to building operational data including HVAC systems, lighting, energy management, and building equipment monitoring. It enables facility managers and building operations teams to read sensor data, control building systems, receive alerts, and integrate with third-party applications for smart building use cases.
   version: '1.0'
   contact:
