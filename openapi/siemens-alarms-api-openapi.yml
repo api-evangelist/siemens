@@ -95,6 +95,12 @@ paths:
           description: Alarm not found
 components:
   schemas:
+    AcknowledgeAlarmRequest:
+      type: object
+      properties:
+        comment:
+          type: string
+          description: Optional comment about the acknowledgment action
     Alarm:
       type: object
       properties:
@@ -136,12 +142,6 @@ components:
         acknowledgedBy:
           type: string
           description: User who acknowledged the alarm
-    AcknowledgeAlarmRequest:
-      type: object
-      properties:
-        comment:
-          type: string
-          description: Optional comment about the acknowledgment action
     AlarmList:
       type: object
       properties:

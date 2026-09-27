@@ -379,101 +379,101 @@ apis:
   description: Contribute to energy load reduction and savings during peak demand time and public holidays.
 - aid: siemens:inventory-api
   name: Siemens Inventory API
-  humanURL: https://developer.siemens.com/"https://industrial-assets.io/developers/programing-interface/programing-interface.html#inventory-api"
+  humanURL: https://industrial-assets.io/developers/programing-interface/programing-interface.html#inventory-api
   properties:
-  - url: https://developer.siemens.com/"https://industrial-assets.io/developers/programing-interface/programing-interface.html#inventory-api"
+  - url: https://industrial-assets.io/developers/programing-interface/programing-interface.html#inventory-api
     type: Documentation
   description: Documentation of the API used to manage the Asset Models, which work as entry point for
     any further interaction with the assets.
 - aid: siemens:device-discovery-api
   name: Siemens Device Discovery API
-  humanURL: https://developer.siemens.com/"https://industrial-assets.io/developers/programing-interface/programing-interface.html#discovery-api"
+  humanURL: https://industrial-assets.io/developers/programing-interface/programing-interface.html#discovery-api
   properties:
-  - url: https://developer.siemens.com/"https://industrial-assets.io/developers/programing-interface/programing-interface.html#discovery-api"
+  - url: https://industrial-assets.io/developers/programing-interface/programing-interface.html#discovery-api
     type: Documentation
   description: Documentation of the API used to trigger the Device Discovery, which is necessary to find
     devices.
 - aid: siemens:gateway-onboarding-api
   name: Siemens Gateway Onboarding API
-  humanURL: https://developer.siemens.com/"https://industrial-assets.io/developers/programing-interface/programing-interface.html#gw-onboarding-api"
+  humanURL: https://industrial-assets.io/developers/programing-interface/programing-interface.html#gw-onboarding-api
   properties:
-  - url: https://developer.siemens.com/"https://industrial-assets.io/developers/programing-interface/programing-interface.html#gw-onboarding-api"
+  - url: https://industrial-assets.io/developers/programing-interface/programing-interface.html#gw-onboarding-api
     type: Documentation
   description: Documentation of the API used to onboard new gateways into CDM.
 - aid: siemens:authorization-api
   name: Siemens Authorization API
-  humanURL: https://developer.siemens.com/"https://industrial-assets.io/developers/programing-interface/programing-interface.html#authorization-api"
+  humanURL: https://industrial-assets.io/developers/programing-interface/programing-interface.html#authorization-api
   properties:
-  - url: https://developer.siemens.com/"https://industrial-assets.io/developers/programing-interface/programing-interface.html#authorization-api"
+  - url: https://industrial-assets.io/developers/programing-interface/programing-interface.html#authorization-api
     type: Documentation
   description: Industrial Asset Hub Authorization API.
 - aid: siemens:user-configuration-api
   name: Siemens User Configuration API
-  humanURL: https://developer.siemens.com/"https://industrial-assets.io/developers/programing-interface/programing-interface.html#user-configuration-api"
+  humanURL: https://industrial-assets.io/developers/programing-interface/programing-interface.html#user-configuration-api
   properties:
-  - url: https://developer.siemens.com/"https://industrial-assets.io/developers/programing-interface/programing-interface.html#user-configuration-api"
+  - url: https://industrial-assets.io/developers/programing-interface/programing-interface.html#user-configuration-api
     type: Documentation
   description: Industrial Asset Hub User Configuration API.
 - aid: siemens:workflow-executor-api
   name: Siemens Workflow Executor API
-  humanURL: https://developer.siemens.com/"https://industrial-assets.io/developers/programing-interface/programing-interface.html#workflow-executor-api"
+  humanURL: https://industrial-assets.io/developers/programing-interface/programing-interface.html#workflow-executor-api
   properties:
-  - url: https://developer.siemens.com/"https://industrial-assets.io/developers/programing-interface/programing-interface.html#workflow-executor-api"
+  - url: https://industrial-assets.io/developers/programing-interface/programing-interface.html#workflow-executor-api
     type: Documentation
   description: Southbound API of the WFX (Workflow Executor) Service.
 - aid: siemens:remote-access-api
   name: Siemens Remote Access API
-  humanURL: https://developer.siemens.com/"https://industrial-assets.io/developers/programing-interface/programing-interface.html#remote-access-api"
+  humanURL: https://industrial-assets.io/developers/programing-interface/programing-interface.html#remote-access-api
   properties:
-  - url: https://developer.siemens.com/"https://industrial-assets.io/developers/programing-interface/programing-interface.html#remote-access-api"
+  - url: https://industrial-assets.io/developers/programing-interface/programing-interface.html#remote-access-api
     type: Documentation
   description: Industrial Asset Hub Remote Access API.
 - aid: siemens:industrial-asset-link
   name: Siemens Industrial Asset Link
-  humanURL: https://developer.siemens.com/"https://industrial-assets.io/developers/getting-started/iah-compose-stack/index.html"
+  humanURL: https://industrial-assets.io/developers/getting-started/iah-compose-stack/index.html
   properties:
-  - url: https://developer.siemens.com/"https://industrial-assets.io/developers/getting-started/iah-compose-stack/index.html"
+  - url: https://industrial-assets.io/developers/getting-started/iah-compose-stack/index.html
     type: Documentation
   description: Asset links act as adapters/drivers, between the Asset Gateway and the field devices. This
     SDK already includes the gRPC interfaces for the IAH use cases.
 - aid: siemens:ie-portal-api
   name: Siemens IE Portal API
-  humanURL: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/industrial-edge-management/ie-portal-api/1.5.0"
+  humanURL: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/industrial-edge-management/ie-portal-api/1.5.0
   properties:
-  - url: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/industrial-edge-management/ie-portal-api/1.5.0"
+  - url: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/industrial-edge-management/ie-portal-api/1.5.0
     type: Documentation
   description: Use the IEM API to automate tasks, such as IED onboarding or Industrial Edge Application
     management.
 - aid: siemens:admin-user-api
   name: Siemens Admin User API
-  humanURL: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/industrial-edge-management/admin-user-api/1.0.0"
+  humanURL: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/industrial-edge-management/admin-user-api/1.0.0
   properties:
-  - url: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/industrial-edge-management/admin-user-api/1.0.0"
+  - url: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/industrial-edge-management/admin-user-api/1.0.0
     type: Documentation
   description: This document provides API specs for Admin user. The specification is compatible starting
     from version 1.4.3 of the IEM.
 - aid: siemens:ie-device-api
   name: Siemens IE Device API
-  humanURL: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/industrial-edge-device/ie-device-api/2.0.0"
+  humanURL: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/industrial-edge-device/ie-device-api/2.0.0
   properties:
-  - url: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/industrial-edge-device/ie-device-api/2.0.0"
+  - url: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/industrial-edge-device/ie-device-api/2.0.0
     type: Documentation
   description: IE Device APIs offer the possibility to manage the lifecycle of the IE Device itself, list
     its resources and publish notifications.
 - aid: siemens:secure-storage-api
   name: Siemens Secure Storage API
-  humanURL: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/industrial-edge-device/secure-storage-api/2.0.0"
+  humanURL: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/industrial-edge-device/secure-storage-api/2.0.0
   properties:
-  - url: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/industrial-edge-device/secure-storage-api/2.0.0"
+  - url: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/industrial-edge-device/secure-storage-api/2.0.0
     type: Documentation
   description: The application stores data in secure storage in key-value pairs, where the unique key
     is used to identify each value. An application can have multiple key-value pairs, where each key is
     unique to its own application. Each application has a unique set of key-value pairs.
 - aid: siemens:ie-device-oidc-provider-api
   name: Siemens IE Device OIDC Provider API
-  humanURL: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/industrial-edge-device/ie-device-oidc-provider-api/1.0.0"
+  humanURL: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/industrial-edge-device/ie-device-oidc-provider-api/1.0.0
   properties:
-  - url: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/industrial-edge-device/ie-device-oidc-provider-api/1.0.0"
+  - url: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/industrial-edge-device/ie-device-oidc-provider-api/1.0.0
     type: Documentation
   description: IE Device OIDC provider APIs offer the possibility to manage OIDC provider.
 - aid: siemens:network-service
@@ -516,90 +516,91 @@ apis:
   description: Protocol Documentation.
 - aid: siemens:industrial-edge-data-processing-apis
   name: Siemens Industrial Edge Data Processing APIs
-  humanURL: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/intro/build-your-use-case/data-processing/data-processing-overview/data-processing-overview"
+  humanURL: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/intro/build-your-use-case/data-processing/data-processing-overview/data-processing-overview
   properties:
-  - url: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/intro/build-your-use-case/data-processing/data-processing-overview/data-processing-overview"
+  - url: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/intro/build-your-use-case/data-processing/data-processing-overview/data-processing-overview
     type: Documentation
   description: Leverage Southbound and Nortbound connectivity of Industrial Edge and distribute data to
     various systems.
 - aid: siemens:iectl-industrial-edge-control
   name: Siemens IECTL - Industrial Edge Control
-  humanURL: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/industrial-edge-control-iectl/overview/industrial-edge-control-iectl-overview"
+  humanURL: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/industrial-edge-control-iectl/overview/industrial-edge-control-iectl-overview
   properties:
-  - url: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/industrial-edge-control-iectl/overview/industrial-edge-control-iectl-overview"
+  - url: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/industrial-edge-control-iectl/overview/industrial-edge-control-iectl-overview
     type: Documentation
   description: Industrial Edge Control (IECTL) is a Command Line Interface to interact with Industrial
     Edge and its components.
 - aid: siemens:flow-creator-configurator-apis
   name: Siemens Flow Creator Configurator APIs
-  humanURL: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/flow-creator/flow-creator-configurator-api/2.0.0"
+  humanURL: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/flow-creator/flow-creator-configurator-api/2.0.0
   properties:
-  - url: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/flow-creator/flow-creator-configurator-api/2.0.0"
+  - url: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/flow-creator/flow-creator-configurator-api/2.0.0
     type: Documentation
   description: The Flow Creator Configurator REST APIs allow you to configure flows, files, and nodes
     on Flow Creator instances running on multiple IE devices.
 - aid: siemens:service-registry-apis
   name: Siemens Service Registry APIs
-  humanURL: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/service-registry/rest-api/service-registry-apis"
+  humanURL: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/service-registry/rest-api/service-registry-apis
   properties:
-  - url: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/service-registry/rest-api/service-registry-apis"
+  - url: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/service-registry/rest-api/service-registry-apis
     type: Documentation
   description: Public API documentation for IE Runtime Service Registry. Service Registry serves as a
     centralized directory where information about available services and their locations is stored.
 - aid: siemens:vision-payload-specification
   name: Siemens Vision Payload Specification
-  humanURL: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/point-to-point/vision-payload-specification"
+  humanURL: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/point-to-point/vision-payload-specification
   properties:
-  - url: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/point-to-point/vision-payload-specification"
+  - url: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/point-to-point/vision-payload-specification
     type: Documentation
   description: Image Connector Applications Interface Specification.
 - aid: siemens:server-api-device-discover-api
   name: 'Siemens Server API: Device Discover API'
-  humanURL: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/profinet-asset-service/api/server-api/device-dicovery-api/device-discover-api"
+  humanURL: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/profinet-asset-service/api/server-api/device-dicovery-api/device-discover-api
   properties:
-  - url: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/profinet-asset-service/api/server-api/device-dicovery-api/device-discover-api"
+  - url: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/profinet-asset-service/api/server-api/device-dicovery-api/device-discover-api
     type: Documentation
   description: '            '
 - aid: siemens:server-api-driver-event-api
   name: 'Siemens Server API: Driver Event API'
-  humanURL: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/profinet-asset-service/api/server-api/driver-event-api/driver-event-api"
+  humanURL: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/profinet-asset-service/api/server-api/driver-event-api/driver-event-api
   properties:
-  - url: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/profinet-asset-service/api/server-api/driver-event-api/driver-event-api"
+  - url: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/profinet-asset-service/api/server-api/driver-event-api/driver-event-api
     type: Documentation
   description: '            '
 - aid: siemens:server-api-driver-info-api
   name: 'Siemens Server API: Driver Info API'
-  humanURL: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/profinet-asset-service/api/server-api/driver-info-api/driver-info-api"
+  humanURL: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/profinet-asset-service/api/server-api/driver-info-api/driver-info-api
   properties:
-  - url: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/profinet-asset-service/api/server-api/driver-info-api/driver-info-api"
+  - url: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/profinet-asset-service/api/server-api/driver-info-api/driver-info-api
     type: Documentation
   description: '            '
 - aid: siemens:server-api-generic-data-api
   name: 'Siemens Server API: Generic Data API'
-  humanURL: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/profinet-asset-service/api/server-api/generic-data-api/generic-data-api"
+  humanURL: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/profinet-asset-service/api/server-api/generic-data-api/generic-data-api
   properties:
-  - url: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/profinet-asset-service/api/server-api/generic-data-api/generic-data-api"
+  - url: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/profinet-asset-service/api/server-api/generic-data-api/generic-data-api
     type: Documentation
   description: '            '
 - aid: siemens:client-api-registry-api
   name: 'Siemens Client API: Registry API'
-  humanURL: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/profinet-asset-service/api/client-api/registry-api/registry-api"
+  humanURL: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/profinet-asset-service/api/client-api/registry-api/registry-api
   properties:
-  - url: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/profinet-asset-service/api/client-api/registry-api/registry-api"
+  - url: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/profinet-asset-service/api/client-api/registry-api/registry-api
     type: Documentation
   description: '            '
-- aid: siemens:undefined
-  humanURL: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/databus/common-payload-definition"
+- aid: siemens:industrial-edge-common-databus-payload-format
+  name: "Siemens Industrial Edge Common Databus Payload Format"
+  humanURL: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/databus/common-payload-definition
   properties:
-  - url: https://developer.siemens.com/"https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/databus/common-payload-definition"
+  - url: https://docs.industrial-operations-x.siemens.cloud/r/en-us/industrial-edge-platform-operation/apis-references/apis/databus/common-payload-definition
     type: Documentation
   description: The Industrial Edge Common Databus Payload Format describes how connectors of different
     sources should publish data to the Databus.
 - aid: siemens:industrial-information-hub-essentials-api
   name: Siemens Industrial Information Hub Essentials API
-  humanURL: https://developer.siemens.com/"https://docs.eu1.edge.siemens.cloud/apis_and_references/apis/iih-essentials/definitions/iih-essentials-2.0.0.html"
+  humanURL: https://docs.eu1.edge.siemens.cloud/apis_and_references/apis/iih-essentials/definitions/iih-essentials-2.0.0.html
   properties:
-  - url: https://developer.siemens.com/"https://docs.eu1.edge.siemens.cloud/apis_and_references/apis/iih-essentials/definitions/iih-essentials-2.0.0.html"
+  - url: https://docs.eu1.edge.siemens.cloud/apis_and_references/apis/iih-essentials/definitions/iih-essentials-2.0.0.html
     type: Documentation
   description: Interact with the different endpoints of the IIH Essentials.
 - aid: siemens:industrial-iot-typescript-sdk
@@ -616,7 +617,8 @@ apis:
   - url: https://developer.siemens.com/industrial-iot-open-source/mindconnect-nodejs/cli/index.html
     type: Documentation
   description: Command Line Interface for Industrial IoT APIs.
-- aid: siemens:undefined
+- aid: siemens:mindconnect-nodejs
+  name: "Siemens MindConnect Node.js"
   humanURL: https://developer.siemens.com/industrial-iot-open-source/mindconnect-nodejs/index.html
   properties:
   - url: https://developer.siemens.com/industrial-iot-open-source/mindconnect-nodejs/index.html
@@ -980,82 +982,86 @@ apis:
     type: Documentation
   description: COMOS Walkinside Service enables the use of virtual reality to create a simulated environment
     and to provide trainings in a safe and controlled environment.
-- aid: siemens:undefined
-  humanURL: https://developer.siemens.com/"https://plm.sw.siemens.com/en-US/plm-components/parasolid/"
+- aid: siemens:parasolid
+  name: "Siemens Parasolid"
+  humanURL: https://plm.sw.siemens.com/en-US/plm-components/parasolid/
   properties:
-  - url: https://developer.siemens.com/"https://plm.sw.siemens.com/en-US/plm-components/parasolid/"
+  - url: https://plm.sw.siemens.com/en-US/plm-components/parasolid/
     type: Documentation
   description: Develop applications in product design, manufacturing and analysis with Parasolid the leading
     3D geometric modeling component, used in Siemens applications and licensed to 200 independent software
     vendors.
-- aid: siemens:undefined
-  humanURL: https://developer.siemens.com/"https://plm.sw.siemens.com/en-US/plm-components/d-cubed/"
+- aid: siemens:d-cubed
+  name: "Siemens D-Cubed"
+  humanURL: https://plm.sw.siemens.com/en-US/plm-components/d-cubed/
   properties:
-  - url: https://developer.siemens.com/"https://plm.sw.siemens.com/en-US/plm-components/d-cubed/"
+  - url: https://plm.sw.siemens.com/en-US/plm-components/d-cubed/
     type: Documentation
   description: Enhance your CAD, CAM and CAE software applications with D-Cubed components for parametric
     sketching, assembly constraints, motion simulation, collision detection and hidden line drawing.
-- aid: siemens:undefined
-  humanURL: https://developer.siemens.com/"https://plm.sw.siemens.com/en-US/plm-components/kineo/"
+- aid: siemens:kineo
+  name: "Siemens Kineo"
+  humanURL: https://plm.sw.siemens.com/en-US/plm-components/kineo/
   properties:
-  - url: https://developer.siemens.com/"https://plm.sw.siemens.com/en-US/plm-components/kineo/"
+  - url: https://plm.sw.siemens.com/en-US/plm-components/kineo/
     type: Documentation
   description: Optimize robotics simulation and digital mock-up in a wide range of industrial applications
     with Kineo components for automatic path planning, high-speed collision detection and predictive cable
     performance.
 - aid: siemens:geolus-shape-search
   name: Siemens Geolus Shape Search
-  humanURL: https://developer.siemens.com/"https://plm.sw.siemens.com/en-US/plm-components/geolus/"
+  humanURL: https://plm.sw.siemens.com/en-US/plm-components/geolus/
   properties:
-  - url: https://developer.siemens.com/"https://plm.sw.siemens.com/en-US/plm-components/geolus/"
+  - url: https://plm.sw.siemens.com/en-US/plm-components/geolus/
     type: Documentation
   description: Find and reuse similar parts, no matter how they have been named, with Geolus Shape Search
     to enhance processes including design, procurement, part management and classification.
 - aid: siemens:3d-visualization-sdk
   name: Siemens 3D Visualization SDK
-  humanURL: https://developer.siemens.com/"https://plm.sw.siemens.com/en-US/plm-components/3d-visualization-sdk/"
+  humanURL: https://plm.sw.siemens.com/en-US/plm-components/3d-visualization-sdk/
   properties:
-  - url: https://developer.siemens.com/"https://plm.sw.siemens.com/en-US/plm-components/3d-visualization-sdk/"
+  - url: https://plm.sw.siemens.com/en-US/plm-components/3d-visualization-sdk/
     type: Documentation
   description: Implement 3D visualization in your applications according to customer needs. Whether it's
     photorealistic rendering or engineering-oriented graphics with annotation, sectioning, and measurement,
     we have the 3D visualization SDK to meet your needs.
 - aid: siemens:simcenter-femap-oem
   name: Siemens Simcenter Femap OEM
-  humanURL: https://developer.siemens.com/"https://plm.sw.siemens.com/en-US/simcenter/mechanical-simulation/femap/"
+  humanURL: https://plm.sw.siemens.com/en-US/simcenter/mechanical-simulation/femap/
   properties:
-  - url: https://developer.siemens.com/"https://plm.sw.siemens.com/en-US/simcenter/mechanical-simulation/femap/"
+  - url: https://plm.sw.siemens.com/en-US/simcenter/mechanical-simulation/femap/
     type: Documentation
   description: Create, edit and evaluate finite element models of complex products/systems using advanced
     CAE pre- and postprocessors to model components, assemblies or systems.
 - aid: siemens:solid-edge-oem
   name: Siemens Solid Edge OEM
-  humanURL: https://developer.siemens.com/"https://solidedge.siemens.com/en/solutions/products/3d-design/solid-edge-oem/"
+  humanURL: https://solidedge.siemens.com/en/solutions/products/3d-design/solid-edge-oem/
   properties:
-  - url: https://developer.siemens.com/"https://solidedge.siemens.com/en/solutions/products/3d-design/solid-edge-oem/"
+  - url: https://solidedge.siemens.com/en/solutions/products/3d-design/solid-edge-oem/
     type: Documentation
   description: Add value to your hardware and software solutions with our low-cost, easy-to-use computer-aided
     design (CAD) feature base customized with your brand look and feel.
 - aid: siemens:jt-open-toolkit-jttk
   name: Siemens JT Open Toolkit (JTTK)
-  humanURL: https://developer.siemens.com/"https://plm.sw.siemens.com/en-US/plm-components/jt/jt-open-toolkit/"
+  humanURL: https://plm.sw.siemens.com/en-US/plm-components/jt/jt-open-toolkit/
   properties:
-  - url: https://developer.siemens.com/"https://plm.sw.siemens.com/en-US/plm-components/jt/jt-open-toolkit/"
+  - url: https://plm.sw.siemens.com/en-US/plm-components/jt/jt-open-toolkit/
     type: Documentation
   description: Access the rich content of JT data in your applications with the JT Open Toolkit, a C++
     API for reading and writing ISO-compliant JT files.
-- aid: siemens:undefined
-  humanURL: https://developer.siemens.com/"https://plm.sw.siemens.com/en-US/plm-components/jt/jt2go/"
+- aid: siemens:jt2go
+  name: "Siemens JT2Go"
+  humanURL: https://plm.sw.siemens.com/en-US/plm-components/jt/jt2go/
   properties:
-  - url: https://developer.siemens.com/"https://plm.sw.siemens.com/en-US/plm-components/jt/jt2go/"
+  - url: https://plm.sw.siemens.com/en-US/plm-components/jt/jt2go/
     type: Documentation
   description: View and interact with 3D data on your choice of desktop/mobile platform using JT2Go our
     free viewer for JT and Parasolid XT data.
 - aid: siemens:plm-xml
   name: Siemens PLM XML
-  humanURL: https://developer.siemens.com/"https://plm.sw.siemens.com/en-US/plm-components/kineo/"
+  humanURL: https://plm.sw.siemens.com/en-US/plm-components/kineo/
   properties:
-  - url: https://developer.siemens.com/"https://plm.sw.siemens.com/en-US/plm-components/kineo/"
+  - url: https://plm.sw.siemens.com/en-US/plm-components/kineo/
     type: Documentation
   description: Represent rich product data explicitly and via references with PLM XML, a lightweight,
     flexible mechanism for transporting product data.
@@ -1101,24 +1107,24 @@ apis:
   description: Web browser playground for iX react starter app.
 - aid: siemens:siemens-api-catalogue
   name: Siemens API Catalogue
-  humanURL: https://developer.siemens.com/"https://www.postman.com/siemens-ag/workspace/siemens-xcelerator-developer-portal/overview"
+  humanURL: https://www.postman.com/siemens-ag/workspace/siemens-xcelerator-developer-portal/overview
   properties:
-  - url: https://developer.siemens.com/"https://www.postman.com/siemens-ag/workspace/siemens-xcelerator-developer-portal/overview"
+  - url: https://www.postman.com/siemens-ag/workspace/siemens-xcelerator-developer-portal/overview
     type: Documentation
   description: Siemens API Catalogue is available on the Public API Network hosted by Postman.
 - aid: siemens:node-red-connectivity-playground
   name: Siemens Node-RED Connectivity Playground
-  humanURL: https://developer.siemens.com/"https://playground.mindconnect.rocks"
+  humanURL: https://playground.mindconnect.rocks
   properties:
-  - url: https://developer.siemens.com/"https://playground.mindconnect.rocks"
+  - url: https://playground.mindconnect.rocks
     type: Documentation
   description: Take a look at the live Node-RED flow examples which are sending the industrial OPC UA
     or MQTT Data to the cloud platform.
 - aid: siemens:industrial-edge-playground
   name: Siemens Industrial Edge Playground
-  humanURL: https://developer.siemens.com/"https://www.siemens.com/global/en/products/automation/topic-areas/industrial-edge/developer/playground-registration.html"
+  humanURL: https://www.siemens.com/global/en/products/automation/topic-areas/industrial-edge/developer/playground-registration.html
   properties:
-  - url: https://developer.siemens.com/"https://www.siemens.com/global/en/products/automation/topic-areas/industrial-edge/developer/playground-registration.html"
+  - url: https://www.siemens.com/global/en/products/automation/topic-areas/industrial-edge/developer/playground-registration.html
     type: Documentation
   description: Try out how Industrial Edge Management system, edge devices and edge apps work!
 - aid: siemens:carbon-footprint-indicator-for-transportation-api
@@ -1170,9 +1176,9 @@ apis:
     Carbon Footprint (PCF) of your products on SiGREEN.
 - aid: siemens:simatic-ax-open-source
   name: Siemens SIMATIC AX Open Source
-  humanURL: https://developer.siemens.com/"https://github.com/simatic-ax"
+  humanURL: https://github.com/simatic-ax
   properties:
-  - url: https://developer.siemens.com/"https://github.com/simatic-ax"
+  - url: https://github.com/simatic-ax
     type: Documentation
   description: ST (Structured Text) examples, libraries, tutorials, code snippets and product templates
     for SIMATIC AX.
@@ -1306,6 +1312,7 @@ tags:
 - Industrial IoT
 - Smart Buildings
 - Digital Twin
+- Industrial
 kind: contract
 deliveryModel:
   model: unknown

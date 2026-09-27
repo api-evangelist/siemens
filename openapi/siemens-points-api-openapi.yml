@@ -134,6 +134,39 @@ components:
         nextLink:
           type: string
           description: URL for the next page of results
+    Point:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the data point
+        name:
+          type: string
+          description: Human-readable name of the data point
+        description:
+          type: string
+          description: Description of what the data point measures or controls
+        type:
+          type: string
+          enum:
+          - analog-input
+          - analog-output
+          - binary-input
+          - binary-output
+          - multistate-input
+          - multistate-output
+          description: BACnet point type classification
+        unit:
+          type: string
+          description: Engineering unit (e.g., degC, Pa, m3/h)
+        currentValue:
+          $ref: '#/components/schemas/PointValue'
+        writable:
+          type: boolean
+          description: Whether this point accepts write commands
+        equipmentId:
+          type: string
+          description: ID of the equipment this point belongs to
     SetPointValueRequest:
       type: object
       required:
@@ -170,39 +203,6 @@ components:
           - bad
           - uncertain
           description: Data quality indicator
-    Point:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier of the data point
-        name:
-          type: string
-          description: Human-readable name of the data point
-        description:
-          type: string
-          description: Description of what the data point measures or controls
-        type:
-          type: string
-          enum:
-          - analog-input
-          - analog-output
-          - binary-input
-          - binary-output
-          - multistate-input
-          - multistate-output
-          description: BACnet point type classification
-        unit:
-          type: string
-          description: Engineering unit (e.g., degC, Pa, m3/h)
-        currentValue:
-          $ref: '#/components/schemas/PointValue'
-        writable:
-          type: boolean
-          description: Whether this point accepts write commands
-        equipmentId:
-          type: string
-          description: ID of the equipment this point belongs to
   parameters:
     pointId:
       name: pointId
