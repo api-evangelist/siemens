@@ -16,20 +16,22 @@ deployment:
 tools_count: 8
 tools:
 - name: siemens_assets
-  description: ''
+  description: Unified asset search with keyword-based discovery across all Siemens collections
 - name: siemens_developer_search
-  description: ''
+  description: Search across all Siemens developer documentation
 - name: siemens_developer_discover
-  description: ''
+  description: Discover Siemens developer content by topic and product area
 - name: siemens_developer_reference
-  description: ''
+  description: Find specific API reference documentation
 - name: siemens_aiSearch
-  description: ''
+  description: Natural language search with AI-powered summarization and intelligent content discovery
 - name: siemens_productSearch
-  description: ''
+  description: Specialized search for Siemens products, solutions, and technologies with technical specifications
 - name: siemens_search
-  description: ''
+  description: Comprehensive search combining AI insights, content, and products
 - name: siemens_get_web_content
-  description: ''
+  description: Fetch and convert Siemens web content to clean markdown format using real browser automation
 tools_source: live tools/list via initialize handshake, 2026-09-11 (signals/audit_mcp_authorship.py --probe)
 authorship: provider
+descriptions_source: live tools/list (authorship probe or saved capture); filled by backfill-tools-from-authorship.py
+  --descriptions, 2026-09-28
