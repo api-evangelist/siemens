@@ -64,6 +64,21 @@ paths:
           description: Point not found
 components:
   schemas:
+    TrendData:
+      type: object
+      properties:
+        pointId:
+          type: string
+        from:
+          type: string
+          format: date-time
+        to:
+          type: string
+          format: date-time
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/PointValue'
     PointValue:
       type: object
       properties:
@@ -84,21 +99,6 @@ components:
           - bad
           - uncertain
           description: Data quality indicator
-    TrendData:
-      type: object
-      properties:
-        pointId:
-          type: string
-        from:
-          type: string
-          format: date-time
-        to:
-          type: string
-          format: date-time
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/PointValue'
   parameters:
     pointId:
       name: pointId

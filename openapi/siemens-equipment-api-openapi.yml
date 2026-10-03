@@ -69,24 +69,7 @@ paths:
         '404':
           description: Equipment not found
 components:
-  parameters:
-    equipmentId:
-      name: equipmentId
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Unique identifier of the building equipment
   schemas:
-    EquipmentList:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Equipment'
-        nextLink:
-          type: string
     Equipment:
       type: object
       properties:
@@ -113,6 +96,23 @@ components:
           - maintenance
           - offline
           description: Current operational status
+    EquipmentList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Equipment'
+        nextLink:
+          type: string
+  parameters:
+    equipmentId:
+      name: equipmentId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique identifier of the building equipment
   securitySchemes:
     BearerAuth:
       type: http

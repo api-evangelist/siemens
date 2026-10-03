@@ -94,6 +94,14 @@ paths:
         '404':
           description: Alarm not found
 components:
+  parameters:
+    alarmId:
+      name: alarmId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique identifier of the building alarm
   schemas:
     AcknowledgeAlarmRequest:
       type: object
@@ -101,6 +109,15 @@ components:
         comment:
           type: string
           description: Optional comment about the acknowledgment action
+    AlarmList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alarm'
+        nextLink:
+          type: string
     Alarm:
       type: object
       properties:
@@ -142,23 +159,6 @@ components:
         acknowledgedBy:
           type: string
           description: User who acknowledged the alarm
-    AlarmList:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Alarm'
-        nextLink:
-          type: string
-  parameters:
-    alarmId:
-      name: alarmId
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Unique identifier of the building alarm
   securitySchemes:
     BearerAuth:
       type: http
