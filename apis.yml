@@ -1,5 +1,149 @@
 aid: siemens
+
 url: https://raw.githubusercontent.com/api-search/siemens/refs/heads/main/apis.yml
+
+name: Siemens
+
+tags:
+- Automation
+- Electrification
+- Industry
+- Manufacturing
+- Building Automation
+- Industrial IoT
+- Smart Buildings
+- Digital Twin
+- Industrial
+
+kind: contract
+
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
+
+accessModel:
+  pricing: enterprise
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise
+  confidence: medium
+  source:
+  - plans
+  - authentication
+  - security
+  generated: '2026-09-03'
+  method: derived
+
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/siemens.png
+
+access: 3rd-Party
+
+created: '2024-11-08'
+
+modified: '2026-09-16'
+
+position: Consuming
+
+description: Siemens is a global powerhouse in the fields of electrification, automation and digitalization.
+  The company offers a broad portfolio of products, solutions and services that enable customers to increase
+  their efficiency and sustainability. Siemens operates in a variety of sectors including energy, healthcare,
+  infrastructure, and industry. With a focus on innovation and technology, Siemens is constantly pushing
+  the boundaries to create a better future for society and the environment.
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+
+specificationVersion: '0.23'
+
+common:
+- type: FinOps
+  url: finops/siemens-finops.yml
+- type: RateLimits
+  url: rate-limits/siemens-rate-limits.yml
+- type: Plans
+  url: plans/siemens-plans-pricing.yml
+- type: Spectral
+  url: rules/siemens-rules.yml
+- type: Spectral
+  url: rules/siemens-jsonschema-spectral-rules.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Webhooks
+  url: asyncapi/siemens-webhooks.yml
+- type: DataModel
+  url: data-model/siemens-data-model.yml
+- type: ChangeLog
+  url: changelog/siemens-changelog.yml
+- type: Conventions
+  url: conventions/siemens-conventions.yml
+- type: Security
+  url: https://www.siemens.com/en-us/content/cert-services-vulnerability-process/
+- type: Deprecation
+  url: lifecycle/siemens-lifecycle.yml
+- type: Lifecycle
+  url: lifecycle/siemens-lifecycle.yml
+- type: ErrorCatalog
+  url: errors/siemens-problem-types.yml
+- type: Conformance
+  url: conformance/siemens-conformance.yml
+- type: LLMsTxt
+  url: llms/siemens-llms.txt
+- type: AgentCard
+  url: a2a/siemens-a2a.yml
+- type: MCPServer
+  url: mcp/siemens-mcp.yml
+- type: Hosts
+  url: hosts/siemens-hosts.yml
+- type: Vendors
+  url: vendors/siemens-vendors.yml
+- type: SDKs
+  url: packages/siemens-packages.yml
+- type: Packages
+  url: packages/siemens-packages.yml
+- type: TermsOfService
+  url: https://www.siemens.com/en-us/terms-of-use/
+- type: Support
+  url: https://www.siemens.com/en-us/support/software-support-services/advisory-memberships/
+- type: PrivacyPolicy
+  url: https://www.siemens.com/en-us/privacy-notice/
+- type: Leadership
+  url: https://www.siemens.com/en-us/company/leadership/
+- type: GettingStarted
+  url: https://developer.siemens.com/building-x-openness/api/accounts-api/quickstart
+- type: AgenticAccess
+  url: agentic-access/siemens-agentic-access.yml
+- type: VulnerabilityDisclosure
+  url: security/siemens-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/siemens-domain-security.yml
+- type: Authentication
+  url: authentication/siemens-authentication.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/siemens
+- type: Website
+  url: https://www.siemens.com
+- type: DeveloperPortal
+  url: https://developer.siemens.com/
+- type: GitHub
+  url: https://github.com/siemens
+- type: Documentation
+  url: https://developer.siemens.com/
+- type: LlmsText
+  url: https://developer.siemens.com/llms.txt
+- type: Blog
+  url: https://blog.siemens.com/feed/
+
 apis:
 - aid: siemens:airport-vertical-api
   name: Siemens Airport Vertical API
@@ -1302,77 +1446,18 @@ apis:
     url: json-ld/siemens-context.jsonld
   - type: Vocabulary
     url: vocabulary/siemens-vocabulary.yml
-name: Siemens
-tags:
-- Automation
-- Electrification
-- Industry
-- Manufacturing
-- Building Automation
-- Industrial IoT
-- Smart Buildings
-- Digital Twin
-- Industrial
-kind: contract
-deliveryModel:
-  model: unknown
-  open_source: false
-  commercial: false
-  callable_host: true
-  label: Delivery model not determined — needs a product licence on record
-  confidence: low
-  source:
-  - openapi
-  generated: '2026-08-28'
-  method: derived
-accessModel:
-  pricing: enterprise
-  onboarding: unknown
-  trial: false
-  try_now: false
-  public: false
-  label: Enterprise
-  confidence: medium
-  source:
-  - plans
-  - authentication
-  - security
-  generated: '2026-09-03'
-  method: derived
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/siemens.png
-access: 3rd-Party
-created: '2024-11-08'
-modified: '2026-09-16'
-position: Consuming
-common:
-- type: AgenticAccess
-  url: agentic-access/siemens-agentic-access.yml
-- type: VulnerabilityDisclosure
-  url: security/siemens-vulnerability-disclosure.yml
-- type: DomainSecurity
-  url: security/siemens-domain-security.yml
-- type: Authentication
-  url: authentication/siemens-authentication.yml
-- type: LinkedIn
-  url: https://www.linkedin.com/company/siemens
-- type: Website
-  url: https://www.siemens.com
-- type: DeveloperPortal
-  url: https://developer.siemens.com/
-- type: GitHub
-  url: https://github.com/siemens
-- type: Documentation
-  url: https://developer.siemens.com/
-- type: LlmsText
-  url: https://developer.siemens.com/llms.txt
-- type: Blog
-  url: https://blog.siemens.com/feed/
-description: Siemens is a global powerhouse in the fields of electrification, automation and digitalization.
-  The company offers a broad portfolio of products, solutions and services that enable customers to increase
-  their efficiency and sustainability. Siemens operates in a variety of sectors including energy, healthcare,
-  infrastructure, and industry. With a focus on innovation and technology, Siemens is constantly pushing
-  the boundaries to create a better future for society and the environment.
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
-specificationVersion: '0.23'
+
+x-coverage:
+  state: unreadable
+  reason: no-machine-readable-spec
+  detail: Provider documentation pages list APIs but no machine‑readable OpenAPI/AsyncAPI/GraphQL specs were found.
+  evidence:
+    - url: https://developer.siemens.com/building-x-openness/api/accounts-api/overview.html
+      status: 200
+  checked: '2026-10-04'
+x-enrichment:
+  date: '2026-10-04'
+  status: enriched
+  artifacts_added: 16
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local

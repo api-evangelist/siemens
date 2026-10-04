@@ -1,0 +1,41 @@
+generated: '2026-10-04'
+method: derived
+generator: derive-problem-types.py
+source:
+- openapi/siemens-alarms-api-openapi.yml
+- openapi/siemens-equipment-api-openapi.yml
+- openapi/siemens-points-api-openapi.yml
+- openapi/siemens-schedules-api-openapi.yml
+- openapi/siemens-trends-api-openapi.yml
+format: custom
+envelope:
+  media_type: null
+  schema: null
+coverage:
+  operations: 10
+  statuses_declared: 4
+problems:
+- status: 400
+  title: Bad Request
+  description: Invalid value for point type
+  operations: 2
+  media_types: []
+  schema: null
+- status: 401
+  title: Unauthorized
+  description: Unauthorized
+  operations: 10
+  media_types: []
+  schema: null
+- status: 403
+  title: Forbidden
+  description: Insufficient permissions
+  operations: 2
+  media_types: []
+  schema: null
+- status: 404
+  title: Not Found
+  description: Point not found
+  operations: 6
+  media_types: []
+  schema: null

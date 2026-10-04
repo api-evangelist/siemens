@@ -1,0 +1,14 @@
+generated: '2026-10-04'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://developer.siemens.com/building-x-openness/api/accounts-api/changelog.md
+sources:
+- https://developer.siemens.com/building-x-openness/api/accounts-api/changelog.md
+- https://developer.siemens.com/building-x-openness/api/activities-v1/changelog.md
+- https://developer.siemens.com/building-x-openness/api/building-operations/changelog.md
+- https://developer.siemens.com/building-x-openness/api/building-structure/changelog.md
+versioning: {}
+deprecation:
+  notice_period: until 31 March 2027
+status_page: null
+docs: https://developer.siemens.com/building-x-openness/api/accounts-api/changelog.md

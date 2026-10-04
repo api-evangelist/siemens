@@ -1,0 +1,11 @@
+generated: '2026-10-04'
+method: generated
+generator: extract-docs-artifacts.py skills (local)
+source: openapi/siemens-alarms-api-openapi.yml
+skills:
+- file: skills/siemens-alarms-acknowledge.md
+  name: siemens-alarms-acknowledge
+  api: openapi/siemens-alarms-api-openapi.yml
+  operations:
+  - listAlarms
+  - acknowledgeAlarm

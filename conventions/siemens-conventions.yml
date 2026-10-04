@@ -1,0 +1,26 @@
+generated: '2026-10-04'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://developer.siemens.com/insights-hub/docs/apis/advanced-assetmanagement/api-assetmanagement-references-filtering.md
+sources:
+- https://developer.siemens.com/insights-hub/docs/apis/advanced-assetmanagement/api-assetmanagement-references-filtering.md
+- https://developer.siemens.com/insights-hub/docs/apis/advanced-assetmanagement/api-assetmanagement-references-pagination.md
+- https://developer.siemens.com/insights-hub/docs/apis/advanced-casemanagement/api-casemanagement-filtering.md
+- https://developer.siemens.com/insights-hub/docs/apis/advanced-casemanagement/api-casemanagement-pagination.md
+idempotency:
+  coverage: none
+  evidence: The documentation does not describe any idempotency key header or mechanism.
+pagination:
+  style: page-based
+  params:
+  - size
+  - page
+  - sort
+  response_fields:
+  - size
+  - totalElements
+  - totalPages
+  - number
+  evidence: Both Asset Management and Case Management services use `size`, `page`, and `sort` query parameters. The response includes a `page`
+    object with `size`, `totalElements`, `totalPages`, and `number`.
+docs: https://developer.siemens.com/insights-hub/docs/apis/advanced-assetmanagement/api-assetmanagement-references-filtering.md
