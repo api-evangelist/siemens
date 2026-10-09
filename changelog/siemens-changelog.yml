@@ -1,0 +1,79 @@
+generated: '2026-10-04'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://developer.siemens.com/building-x-openness/api/accounts-api/changelog.md
+sources:
+- https://developer.siemens.com/building-x-openness/api/accounts-api/changelog.md
+- https://developer.siemens.com/building-x-openness/api/activities-v1/changelog.md
+- https://developer.siemens.com/building-x-openness/api/building-operations/changelog.md
+- https://developer.siemens.com/building-x-openness/api/building-structure/changelog.md
+entries:
+- breaking: false
+  highlights:
+  - '`GET /me` - Retrieve the identity and profile information of the currently authenticated user'
+  - '`GET /me/customers` - Retrieve a paginated list of customers associated with the currently authenticated user'
+  - '`GET /customers/{customerId}/usergroups` - Retrieve a paginated list of user groups for a specified customer'
+  date: '2026-08-19'
+- breaking: true
+  highlights:
+  - '**API Endpoint Update:** New domain and API path for the Building Operation API.'
+  - '**Old Endpoint:** `https://api.bpcloud.siemens.com/operations/*`'
+  - '**New Endpoint:** `https://eu.buildingx.siemens.com/api/openness/operations/*`'
+  - '**Action Required:** Please update your integrations to use the new endpoint.'
+  date: '2026-05-06'
+- breaking: true
+  highlights:
+  - '**API Endpoint Update:** New domain and API path for the Security Activities API.'
+  - '**Old Endpoint:** `https://api.bpcloud.siemens.com/sec-activities-v1/*`'
+  - '**New Endpoint:** `https://eu.buildingx.siemens.com/api/openness/sec-activities-v1/*`'
+  - '**Action Required:** Please update your integrations to use the new endpoint.'
+  date: '2026-05-06'
+- breaking: true
+  highlights:
+  - '**API Endpoint Update:** New domain and API path for the Account API.'
+  - '**Old Endpoint:** `https://api.bpcloud.siemens.com/accounts/*`'
+  - '**New Endpoint:** `https://eu.buildingx.siemens.com/api/openness/accounts/*`'
+  - '**Action Required:** Please update your integrations to use the new endpoint.'
+  date: '2026-04-28'
+- breaking: true
+  highlights:
+  - '**API Endpoint Update:** New domain and API path for the Structure API.'
+  - '**Old Endpoint:** `https://api.bpcloud.siemens.com/structure/*`'
+  - '**New Endpoint:** `https://eu.buildingx.siemens.com/api/openness/structure/*`'
+  - '**Action Required:** Please update your integrations to use the new endpoint.'
+  date: '2026-04-28'
+- breaking: false
+  highlights:
+  - Fixing issue with huge payloads.
+  date: '2026-01-20'
+- breaking: false
+  highlights:
+  - 'Add Fault API endpoints:'
+  - '`GET /faults` - Get all the faults that were active in a specified time range according to the given query parameters.'
+  - '`GET /faults/{faultId}` - Get the specified Fault.'
+  - '`PATCH /faults/{faultId}` - Update the state of Fault.'
+  date: '2025-10-01'
+- breaking: false
+  highlights:
+  - 'Enrich Point with additional attributes: unit, enum, systemAttributes'
+  date: '2025-09-12'
+- breaking: false
+  highlights:
+  - Minor attribute changes
+  date: '2025-03-18'
+- breaking: false
+  highlights:
+  - Fixed maestro version in order to realign to 1.0.31
+  - Fixed vulnerabilities
+  date: '2025-02-04'
+- breaking: false
+  highlights:
+  - Updated changelog.
+  date: '2024-11-12'
+- breaking: false
+  highlights:
+  - Updated changelog
+  date: '2024-11-12'
+scheme: Semantic Versioning
+current_version: 1.5.0
+docs: https://developer.siemens.com/building-x-openness/api/accounts-api/changelog.md

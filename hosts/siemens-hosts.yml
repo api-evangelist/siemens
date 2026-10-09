@@ -1,0 +1,358 @@
+generated: '2026-10-04'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 33
+  own: 20
+  other_domain: 10
+  platform: 3
+  roles:
+  - api
+  - community
+  - docs
+  - identity
+  - marketing
+  - other
+  - portal
+  - website
+hosts:
+- host: api.industrial-assets.io
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: industrial-assets.io
+  role: api
+  relation: other-domain
+- host: api.mindconnect.rocks
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: mindconnect.rocks
+  role: api
+  relation: other-domain
+- host: api.siemens.cloud
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: siemens.cloud
+  role: api
+  relation: other-domain
+- host: api.siemens.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: siemens.com
+  role: api
+  relation: own
+- host: assets.new.siemens.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: siemens.com
+  role: other
+  relation: own
+- host: blog.siemens.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  types:
+  - Blog
+  serves: []
+  registrable_domain: siemens.com
+  role: marketing
+  relation: own
+- host: blogs.sw.siemens.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: siemens.com
+  role: other
+  relation: own
+- host: buildingx.siemens.com
+  found_by:
+  - apis[]
+  - probed
+  - contract-discovery
+  - well-known
+  types: []
+  serves:
+  - api
+  registrable_domain: siemens.com
+  role: other
+  relation: own
+- host: community.siemens.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: siemens.com
+  role: community
+  relation: own
+- host: console.siemens.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: siemens.com
+  role: other
+  relation: own
+- host: developer.internal.siemens.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: siemens.com
+  role: portal
+  relation: own
+- host: developer.siemens.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - site-links
+  - docs-index
+  - well-known
+  - vendor-detect
+  types:
+  - GettingStarted
+  - DeveloperPortal
+  - Documentation
+  - LlmsText
+  serves:
+  - docs
+  - cdn
+  - documentation
+  vendor: fastly
+  registrable_domain: siemens.com
+  role: portal
+  relation: own
+- host: developers.siemens.com
+  found_by:
+  - probed
+  - site-links
+  - namespace-probe
+  types: []
+  serves: []
+  title: developer.siemens.com
+  status: 200
+  registrable_domain: siemens.com
+  role: portal
+  relation: own
+- host: docs.eu1.edge.siemens.cloud
+  found_by:
+  - apis[]
+  - probed
+  - well-known
+  types: []
+  serves:
+  - docs
+  registrable_domain: siemens.cloud
+  role: docs
+  relation: other-domain
+- host: docs.industrial-operations-x.siemens.cloud
+  found_by:
+  - apis[]
+  - probed
+  - docs-index
+  - well-known
+  types: []
+  serves:
+  - docs
+  registrable_domain: siemens.cloud
+  role: docs
+  relation: other-domain
+- host: docs.industrial-operations-x.siemens.cloud:443
+  found_by:
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: siemens.cloud:443
+  role: docs
+  relation: other-domain
+- host: eu.buildingx.siemens.com
+  found_by:
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: siemens.com
+  role: other
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  - apis[]
+  types:
+  - GitHub
+  serves:
+  - docs
+  registrable_domain: github.com
+  role: other
+  relation: platform
+- host: industrial-assets.io
+  found_by:
+  - apis[]
+  - probed
+  - well-known
+  types: []
+  serves:
+  - docs
+  registrable_domain: industrial-assets.io
+  role: other
+  relation: other-domain
+- host: jsonapi.org
+  found_by:
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: jsonapi.org
+  role: other
+  relation: other-domain
+- host: login.microsoftonline.com
+  found_by:
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: microsoftonline.com
+  role: identity
+  relation: other-domain
+- host: mcp.siemens.com
+  found_by:
+  - probed
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: siemens.com
+  role: other
+  relation: own
+- host: news.siemens.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: siemens.com
+  role: marketing
+  relation: own
+- host: playground.mindconnect.rocks
+  found_by:
+  - apis[]
+  - probed
+  types: []
+  serves:
+  - docs
+  registrable_domain: mindconnect.rocks
+  role: other
+  relation: other-domain
+- host: plm.sw.siemens.com
+  found_by:
+  - apis[]
+  - probed
+  - well-known
+  types: []
+  serves:
+  - docs
+  registrable_domain: siemens.com
+  role: other
+  relation: own
+- host: press.siemens.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: siemens.com
+  role: other
+  relation: own
+- host: resources.sw.siemens.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: siemens.com
+  role: other
+  relation: own
+- host: solidedge.siemens.com
+  found_by:
+  - apis[]
+  - probed
+  - well-known
+  types: []
+  serves:
+  - docs
+  registrable_domain: siemens.com
+  role: other
+  relation: own
+- host: uss.login.siemens.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: siemens.com
+  role: identity
+  relation: own
+- host: www.linkedin.com
+  found_by:
+  - pointer
+  types:
+  - LinkedIn
+  serves: []
+  registrable_domain: linkedin.com
+  role: other
+  relation: platform
+- host: www.postman.com
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - docs
+  registrable_domain: postman.com
+  role: other
+  relation: platform
+- host: www.siemens.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - vendor-detect
+  types:
+  - Security
+  - TermsOfService
+  - Support
+  - PrivacyPolicy
+  - Leadership
+  - Website
+  serves:
+  - docs
+  - cdn
+  vendor: cloudfront
+  registrable_domain: siemens.com
+  role: website
+  relation: own
+- host: xcelerator.siemens.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: siemens.com
+  role: other
+  relation: own

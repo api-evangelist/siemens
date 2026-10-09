@@ -1,0 +1,26 @@
+generated: '2026-10-04'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://developer.siemens.com/siesmart/common-scenarios/notifications.md
+sources:
+- https://developer.siemens.com/siesmart/common-scenarios/notifications.md
+- https://developer.siemens.com/enlighted-apis/location-services/location-services-streaming-apis/event-types/attention-event-type.md
+- https://developer.siemens.com/enlighted-apis/location-services/location-services-streaming-apis/event-types/battery-event-type.md
+- https://developer.siemens.com/enlighted-apis/location-services/location-services-streaming-apis/event-types/floor-exit-event-type.md
+description: Siemens webhook/event surface as documented.
+events:
+- event: DECISION_RECEIVED
+  description: When the credit decision changes; if the deal isn't initially auto-accepted, the credit decision is subject to change when it has
+    been assessed by our under‑writers.
+- event: CREDIT_STATUS_CHANGED
+  description: When the overall status of the proposal changes; for example when the contract has been activated.
+- event: attention
+  description: Triggered when the attention button is pressed on a tag.
+- event: battery
+  description: Triggered when the battery level of a tag changes (e.g., transitions from GOOD to MEDIUM) or the voltage changes by more than 0.1.
+- event: floorExit
+  description: Triggered when a tag leaves a floor.
+delivery:
+  auth: If an API key was provided during endpoint registration it is sent back in the X-API-KEY request header.
+  content_type: POST with empty body; UUID is passed as query parameter.
+docs: https://developer.siemens.com/siesmart/common-scenarios/notifications.md

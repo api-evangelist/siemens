@@ -45,15 +45,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    ScheduleList:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Schedule'
-        nextLink:
-          type: string
     Schedule:
       type: object
       properties:
@@ -76,6 +67,15 @@ components:
         effectiveTo:
           type: string
           format: date-time
+    ScheduleList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Schedule'
+        nextLink:
+          type: string
   securitySchemes:
     BearerAuth:
       type: http

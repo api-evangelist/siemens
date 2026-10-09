@@ -69,6 +69,14 @@ paths:
         '404':
           description: Equipment not found
 components:
+  parameters:
+    equipmentId:
+      name: equipmentId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unique identifier of the building equipment
   schemas:
     Equipment:
       type: object
@@ -105,14 +113,6 @@ components:
             $ref: '#/components/schemas/Equipment'
         nextLink:
           type: string
-  parameters:
-    equipmentId:
-      name: equipmentId
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Unique identifier of the building equipment
   securitySchemes:
     BearerAuth:
       type: http

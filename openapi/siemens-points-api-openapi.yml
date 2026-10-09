@@ -124,32 +124,6 @@ paths:
           description: Point not found
 components:
   schemas:
-    PointList:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Point'
-        nextLink:
-          type: string
-          description: URL for the next page of results
-    SetPointValueRequest:
-      type: object
-      required:
-      - value
-      properties:
-        value:
-          description: New value to set
-          oneOf:
-          - type: number
-          - type: boolean
-          - type: string
-        priority:
-          type: integer
-          minimum: 1
-          maximum: 16
-          description: BACnet priority level for the write command
     PointValue:
       type: object
       properties:
@@ -170,6 +144,32 @@ components:
           - bad
           - uncertain
           description: Data quality indicator
+    SetPointValueRequest:
+      type: object
+      required:
+      - value
+      properties:
+        value:
+          description: New value to set
+          oneOf:
+          - type: number
+          - type: boolean
+          - type: string
+        priority:
+          type: integer
+          minimum: 1
+          maximum: 16
+          description: BACnet priority level for the write command
+    PointList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Point'
+        nextLink:
+          type: string
+          description: URL for the next page of results
     Point:
       type: object
       properties:
