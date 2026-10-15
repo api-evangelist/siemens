@@ -64,3 +64,248 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: siemens-a2a-protocol-own-agent-card
+  label: A2A protocol (own Agent Card)
+  partner_name: A2A protocol (own Agent Card)
+  category: A2A agent
+  type: register
+  channel: provider-built
+  evidence: https://mcp.siemens.com/.well-known/agent.json
+  source: edge
+  relationship: compatible
+  contract_reference:
+    register: provider's own /.well-known/agent-card.json
+    spec_file: null
+    standard: A2A
+    role: a2a-agent-card
+    registered_name: Siemens Enterprise Knowledge Agent
+    organization: Siemens AG
+    matched_domain: siemens.com
+    matched_by: own-domain
+    detected_by: sweep-ai-agents.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: siemens-bacnet-testing-laboratories-btl-listed
+  label: BACnet Testing Laboratories (BTL Listed)
+  partner_name: BACnet Testing Laboratories (BTL Listed)
+  category: building automation
+  type: register
+  channel: standard-directory
+  evidence: https://www.bacnetinternational.net/btl/?m=23
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: BTL Listing of Tested Products (bacnetinternational.net/btl)
+    spec_file: null
+    standard: BACnet (BTL)
+    role: btl-listed-manufacturer
+    registered_name: Siemens
+    website: http://www.buildingtechnologies.siemens.com/bt/global/en/Pages/home.aspx
+    matched_domain: siemens.com
+    matched_by: domain+name-among-holders
+    btl_manufacturer_ids:
+    - '23'
+    certified_products:
+    - product: BACnet Advanced Operator Workstation (B-AWS)
+      lapsed: false
+      listed_products:
+      - DESIGO CC Workstation
+      - DESIGO INSIGHT
+      - Desigo CC
+      - Desigo CC Workstation
+    - product: BACnet Operator Workstation (B-OWS)
+      lapsed: false
+      listed_products:
+      - DESIGO OPTIC
+      - Desigo Optic
+      - FIN BACnet Connector
+    - product: BACnet Operator Display (B-OD)
+      lapsed: false
+      listed_products:
+      - Desigo Control Point
+    - product: BACnet Lighting Operator Display (B-LOD)
+      lapsed: false
+      listed_products:
+      - Desigo Optic
+    - product: BACnet Building Controller (B-BC)
+      lapsed: false
+      listed_products:
+      - APOGEE PXC7.A and PXC4.A Automation Station
+      - Climatix
+      - Climatix ComExtension
+      - DESIGO PX
+      - DESIGO PX, Automationstation
+      - DESIGO PXC001
+      - DESIGO PXC4 and PXC5 Automation Station
+      - DESIGO PXC7, PXC5 and PXC4 Automation Station
+      - Desigo Automation PXC5.E24.A, PXC7.E400.A and PXC4.E16.A Automation Stations
+      - Desigo PX Automation Station
+      - Desigo PXC7, PXC5 and PXC4 Automation Station
+      - PXC Compact for BACnet IP Networks
+    - product: BACnet Cross-Domain Advanced Operator Workstation (B-XAWS)
+      lapsed: false
+      listed_products:
+      - Desigo CC Workstation
+    - product: BACnet Advanced Application Controller (B-AAC)
+      lapsed: false
+      listed_products:
+      - Desigo DXR2 Automation Stations
+      - Desigo PXC3 Automation Stations
+      - Desigo PXC3 and DXR2  Automation Stations
+      - Desigo PXC3 and DXR2 Automation Stations
+      - PXC Compact Unitary Equipment Controller
+      - TC Compact for BACnet MS/TP Networks
+    - product: BACnet Advanced Life Safety Workstation (B-ALSWS)
+      lapsed: false
+      listed_products:
+      - Desigo CC Workstation
+    - product: BACnet Advanced Access Control Workstation (B-AACWS)
+      lapsed: false
+      listed_products:
+      - Desigo CC Workstation
+    - product: BACnet Application Specific Controller (B-ASC)
+      lapsed: false
+      listed_products:
+      - BACnet MS/TP Point Pickup Module
+      - BACnet PTEC 3 Speed Fan Coil Controller
+      - BACnet PTEC CO2 VAV Controller
+      - BACnet PTEC Constant Volume Controller
+      - BACnet PTEC Constant Volume Controller UUKL
+      - BACnet PTEC Dual Duct Controller
+      - BACnet PTEC Dual Duct Controller UUKL
+      - BACnet PTEC Fan Coil Controller
+      - BACnet PTEC Fan Coil Controller (long)
+      - BACnet PTEC Fan Coil Controller (long) UUKL
+      - BACnet PTEC Fumehood Controller
+      - BACnet PTEC Fumehood Controller UUKL
+    - product: BACnet Life Safety Controller (B-LSC)
+      lapsed: false
+      listed_products:
+      - FS20 Fire Detection System
+    - product: BACnet Smart Sensor (B-SS)
+      lapsed: false
+      listed_products:
+      - SEM3
+    - product: BACnet Smart Actuator (B-SA)
+      lapsed: false
+      listed_products:
+      - HDMCM
+    - product: BACnet Router (B-RTR)
+      lapsed: false
+      listed_products:
+      - APOGEE PXC7.A and PXC4.A Automation Station
+      - BACnet Edge Router
+      - DESIGO PX BACnet Router
+      - DESIGO PXC4 and PXC5 Automation Station
+      - DESIGO PXC7, PXC5 and PXC4 Automation Station
+      - Desigo Automation PXC5.E24.A, PXC7.E400.A and PXC4.E16.A Automation Stations
+      - Desigo BACnet Router
+      - Desigo CC Workstation
+      - Desigo PXC7, PXC5 and PXC4 Automation Station
+    - product: BACnet Gateway (B-GW)
+      lapsed: false
+      listed_products:
+      - KNX IoT to BACnet IP gateway
+      - PN/BACnet LINK
+    - product: BACnet Broadcast Management Device (B-BBMD)
+      lapsed: false
+      listed_products:
+      - APOGEE PXC7.A and PXC4.A Automation Station
+      - BACnet Edge Router
+      - DESIGO PXC4 and PXC5 Automation Station
+      - DESIGO PXC7, PXC5 and PXC4 Automation Station
+      - Desigo Automation PXC5.E24.A, PXC7.E400.A and PXC4.E16.A Automation Stations
+      - Desigo CC Workstation
+      - Desigo Optic
+      - Desigo PXC7, PXC5 and PXC4 Automation Station
+    - product: BACnet General (B-GEN)
+      lapsed: false
+      listed_products:
+      - DESIGO PX BACnet Router
+      - Desigo BACnet Router PXG3.L
+    - product: BACnet Secure Connect Hub (B-SCHUB)
+      lapsed: false
+      listed_products:
+      - APOGEE PXC7.A and PXC4.A Automation Station
+      - BACnet Edge Router
+      - DESIGO PXC7, PXC5 and PXC4 Automation Station
+      - Desigo Automation PXC5.E24.A, PXC7.E400.A and PXC4.E16.A Automation Stations
+      - Desigo PXC7, PXC5 and PXC4 Automation Station
+    signal_note: certified_products = one entry per BACnet DEVICE PROFILE with a BTL-listed product (the product
+      type); product names are context, never a count; current listing only (archives.php superseded listings not
+      read)
+    detected_by: sweep-building-automation.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: siemens-knx-association-manufacturer-members
+  label: KNX Association (manufacturer members)
+  partner_name: KNX Association (manufacturer members)
+  category: building automation
+  type: register
+  channel: standard-directory
+  evidence: https://www.knx.org/community/manufacturers
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: KNX Association manufacturer members (knx.org/community/manufacturers)
+    spec_file: null
+    standard: KNX (ISO/IEC 14543-3)
+    role: knx-manufacturer-member
+    registered_name: Siemens AG
+    website: https://www.siemens.com/knx
+    matched_domain: siemens.com
+    matched_by: domain+name-among-holders
+    signal_note: 'participation only: membership is not a product certification'
+    detected_by: sweep-building-automation.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: siemens-project-haystack-members
+  label: Project Haystack (members)
+  partner_name: Project Haystack (members)
+  category: building data semantics
+  type: register
+  channel: standard-directory
+  evidence: https://marketing.project-haystack.org/about-us
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: Project Haystack members (marketing.project-haystack.org/about-us)
+    spec_file: null
+    standard: Project Haystack
+    role: haystack-founding-member
+    registered_name: siemens
+    website: https://new.siemens.com/global/en.html
+    matched_domain: siemens.com
+    matched_by: domain+name-among-holders
+    signal_note: 'participation only: membership level is context'
+    detected_by: sweep-building-automation.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: siemens-brick-consortium-commercial-members
+  label: Brick Consortium (commercial members)
+  partner: brick
+  partner_name: Brick Consortium (commercial members)
+  category: building data semantics
+  type: register
+  channel: standard-directory
+  evidence: https://brickschema.org/consortium/
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: Brick Consortium members (brickschema.org/consortium)
+    spec_file: null
+    standard: Brick Schema
+    role: brick-commercial-member
+    registered_name: Siemens
+    website: https://www.siemens.com/
+    matched_domain: siemens.com
+    matched_by: domain+name-among-holders
+    signal_note: participation only
+    detected_by: sweep-building-automation.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
