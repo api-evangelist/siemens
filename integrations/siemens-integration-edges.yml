@@ -1,6 +1,12 @@
 generated: '2026-10-14'
 method: searched
 checked:
+- https://marketplace.odva.org/organizations
+- https://opcfoundation.org/products/
+- https://repo.ros2.org/rosdistro_cache/humble-cache.yaml.gz
+- https://repo.ros2.org/rosdistro_cache/jazzy-cache.yaml.gz
+- https://repo.ros2.org/rosdistro_cache/kilted-cache.yaml.gz
+- https://repo.ros2.org/rosdistro_cache/rolling-cache.yaml.gz
 - microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
 source:
 - microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
@@ -24,3 +30,75 @@ edges:
   category: Security - Network
   badges:
   - support-tier:partner
+- partner_name: OPC Foundation (OPC UA)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://opcfoundation.org/products/view/simatic-s7-1500-plc-family/
+  category: OPC UA products
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: OPC Foundation product marketplace (opcfoundation.org/products)
+    spec_file: null
+    standard: OPC UA
+    role: OPC UA certified product vendor
+    registered_name: Siemens AG
+    member_id: '353'
+    website: http://www.siemens.com/
+    matched_domain: siemens.com
+    matched_by: domain+name-among-holders
+    listed_products: 22
+    certified_products:
+    - product: Building Management
+      certified_listings: 1
+      lapsed: false
+    - product: Controller
+      certified_listings: 1
+      lapsed: false
+    - product: Gateway
+      certified_listings: 1
+      lapsed: false
+    listed_categories:
+    - AutoID
+    - Data Integration
+    - None
+    - Services
+    - Tools
+    sample_products:
+    - Siemens AG Desigo CC – Building Management Station Show details
+    - Siemens AG Industrial Information Hub Show details
+    - Siemens AG OPC UA with SIMATIC Controllers (Learning Journey) Show details
+    - Siemens AG OPC UA with SIMATIC Controllers Show details
+    - Siemens AG OPC UA – System Course Siemens Show details
+    signal_note: certified_products = one entry per product CATEGORY with a certified product (diversity), never
+      per product; listed_products is context, never read
+    detected_by: sweep-industrial-robotics.py
+    detected: '2026-10-15'
+  detected_by: sweep-industrial-robotics.py
+  first_seen: '2026-10-15'
+- partner_name: OPC Foundation (OPC UA)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://opcfoundation.org/products/view/simatic-s7-1500-plc-family/
+  category: OPC UA products
+  channel: standard-directory
+  relationship: compatible
+  shape: opc-ua
+  evidence_kind: conformance-register
+  degree: certified
+  report_only: true
+  contract_reference:
+    register: OPC Foundation product marketplace (opcfoundation.org/products)
+    spec_file: null
+    standard: OPC UA
+    role: opc-ua-certified
+    registered_name: Siemens AG
+    matched_domain: siemens.com
+    detected_by: sweep-industrial-robotics.py
+    detected: '2026-10-15'
+  detected_by: sweep-industrial-robotics.py
+  first_seen: '2026-10-15'
