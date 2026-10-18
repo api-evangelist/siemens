@@ -333,7 +333,7 @@
     - connectors/applications/siemens-building-x-openness
     vendor_link: https://developer.siemens.com/
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: siemens-microsoft-teams-own
   label: Microsoft Teams (own)
