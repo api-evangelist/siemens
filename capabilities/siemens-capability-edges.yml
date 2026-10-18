@@ -7,6 +7,7 @@ frame:
 - Chemicals
 - Defense & Aerospace
 - Electrical Components & Equipment
+- Pharmaceuticals & Life Sciences
 - Power & Water Utilities
 min_confidence: 0.7
 capability_model:
@@ -15,7 +16,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 3
+edge_count: 4
 edges:
 - tag: Alarms
   spec_file: siemens-alarms-api-openapi.yml
@@ -38,6 +39,15 @@ edges:
   evidence: GET /equipment 'List Building Equipment'; GET /equipment/{equipmentId} 'Get Building Equipment'
   reason: Inventory/lookup of building equipment within a building automation platform covering HVAC,
     lighting and energy equipment — hard facilities management of building systems.
+- tag: Equipment
+  spec_file: siemens-equipment-api-openapi.yml
+  capability_id: BC-1040.40
+  capability_id_l1: BC-1040
+  capability_name: Asset Information Management
+  confidence: 0.7
+  evidence: 'GET /equipment  listEquipment  List Building Equipment; schemas: Equipment, EquipmentList'
+  reason: Read access to building equipment records/master data corresponds to asset information management
+    within Physical Asset Management.
 - tag: Points
   spec_file: siemens-points-api-openapi.yml
   capability_id: BC-700.20
