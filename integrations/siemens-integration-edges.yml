@@ -2,16 +2,23 @@ generated: '2026-10-14'
 method: searched
 checked:
 - https://a2aregistry.org/api/agents
+- https://api.nuget.org/v3
 - https://brickschema.org/consortium/
+- https://crates.io/api/v1
 - https://fivetran.com/docs-sitemap.xml
 - https://fivetran.com/docs/connectors/partner-built-program
 - https://marketing.project-haystack.org/about-us
 - https://marketplace.odva.org/organizations
 - https://opcfoundation.org/products/
+- https://proxy.golang.org
+- https://pypi.org/pypi
+- https://registry.npmjs.org
 - https://repo.ros2.org/rosdistro_cache/humble-cache.yaml.gz
 - https://repo.ros2.org/rosdistro_cache/jazzy-cache.yaml.gz
 - https://repo.ros2.org/rosdistro_cache/kilted-cache.yaml.gz
 - https://repo.ros2.org/rosdistro_cache/rolling-cache.yaml.gz
+- https://repo1.maven.org/maven2
+- https://rubygems.org/api/v1
 - https://www.bacnetinternational.net/btl/
 - https://www.knx.org/community/manufacturers
 - microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
@@ -434,3 +441,33 @@ edges:
   publisher_verified:
   - Microsoft 365 Certified
   - Microsoft 365 Publisher Attestation
+- partner_name: PyPI
+  partner: pypi
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (Python)
+  evidence: https://pypi.org/project/siemens/
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: PyPI (public registry JSON)
+    spec_file: null
+    language: Python
+    packages:
+    - name: siemens
+      version: 0.1.0
+      released: '2022-08-25'
+      released_field: upload_time
+      lapsed: true
+      page: https://pypi.org/project/siemens/
+      repo_leg: domain:siemens.com
+      publisher_leg: email:siemens.com
+      matched_by: domain+name-among-holders
+    current: false
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'

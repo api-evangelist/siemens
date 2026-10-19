@@ -348,3 +348,34 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: siemens-pypi
+  label: PyPI
+  partner: pypi
+  partner_name: PyPI
+  category: official SDK (Python)
+  type: register
+  channel: package-registry
+  evidence: https://pypi.org/project/siemens/
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: PyPI (public registry JSON)
+    spec_file: null
+    language: Python
+    packages:
+    - name: siemens
+      version: 0.1.0
+      released: '2022-08-25'
+      released_field: upload_time
+      lapsed: true
+      page: https://pypi.org/project/siemens/
+      repo_leg: domain:siemens.com
+      publisher_leg: email:siemens.com
+      matched_by: domain+name-among-holders
+    current: false
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
