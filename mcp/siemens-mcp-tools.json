@@ -1,0 +1,325 @@
+{
+  "endpoint": "https://mcp.siemens.com/mcp",
+  "captured": "2026-10-20",
+  "method": "initialize + tools/list (anonymous, no tool called; roadmap#992)",
+  "protocol_version": "2025-06-18",
+  "server_info": {
+    "name": "siemens-mcp-server",
+    "version": "2026-03-30",
+    "description": "Siemens MCP Server providing access to Siemens internal tools and resources",
+    "websiteUrl": "https://code.siemens.com",
+    "icons": [
+      {
+        "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEwIDJMMTcuMzIgNlYxNEwxMCAxOEwyLjY4IDEzVjVMMTAgMloiIGZpbGw9IiM2NzI3NzciLz4KPC9zdmc+",
+        "mimeType": "image/svg+xml",
+        "sizes": [
+          "20x20"
+        ]
+      }
+    ]
+  },
+  "result": {
+    "tools": [
+      {
+        "name": "siemens_assets",
+        "title": "Siemens Assets Search",
+        "description": "Unified asset search with keyword-based discovery across all Siemens collections",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Search query for assets"
+            },
+            "collection": {
+              "description": "Collection to search in",
+              "type": "string",
+              "enum": [
+                "ALL",
+                "ASSETS",
+                "PRESS",
+                "ENERGY"
+              ]
+            },
+            "assetType": {
+              "description": "Type of assets to search for",
+              "type": "string",
+              "enum": [
+                "ALL",
+                "IMAGES",
+                "VIDEOS",
+                "DOCUMENTS",
+                "AUDIO",
+                "ICONS"
+              ]
+            },
+            "maxResults": {
+              "description": "Maximum number of results to return",
+              "type": "number",
+              "minimum": 1,
+              "maximum": 50
+            },
+            "language": {
+              "description": "Language code (e.g., EN, DE)",
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "annotations": {
+          "title": "Unified Asset Search",
+          "readOnlyHint": true
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      {
+        "name": "siemens_developer_search",
+        "title": "Search Developer Portal",
+        "description": "Search across all Siemens developer documentation",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Search query"
+            },
+            "limit": {
+              "default": 10,
+              "description": "Maximum number of results",
+              "type": "number",
+              "minimum": 1,
+              "maximum": 50
+            },
+            "includeContent": {
+              "default": true,
+              "description": "Include content snippets",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "annotations": {
+          "readOnlyHint": true
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      {
+        "name": "siemens_developer_discover",
+        "title": "Discover Content",
+        "description": "Discover Siemens developer content by topic and product area",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "topic": {
+              "description": "Topic to discover",
+              "type": "string"
+            },
+            "productArea": {
+              "description": "Product area to focus on",
+              "type": "string"
+            },
+            "contentType": {
+              "default": "all",
+              "description": "Type of content",
+              "type": "string",
+              "enum": [
+                "all",
+                "api-reference",
+                "getting-started",
+                "faq",
+                "overview"
+              ]
+            },
+            "limit": {
+              "default": 15,
+              "description": "Maximum number of results",
+              "type": "number",
+              "minimum": 1,
+              "maximum": 50
+            }
+          }
+        },
+        "annotations": {
+          "readOnlyHint": true
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      {
+        "name": "siemens_developer_reference",
+        "title": "API Reference Lookup",
+        "description": "Find specific API reference documentation",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "apiName": {
+              "type": "string",
+              "description": "Name of the API"
+            },
+            "endpoint": {
+              "description": "Specific endpoint",
+              "type": "string"
+            },
+            "includeExamples": {
+              "default": false,
+              "description": "Include code examples",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "apiName"
+          ]
+        },
+        "annotations": {
+          "readOnlyHint": true
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      {
+        "name": "siemens_aiSearch",
+        "description": "Natural language search with AI-powered summarization and intelligent content discovery",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Natural language search query"
+            },
+            "language": {
+              "description": "Content language (default: EN)",
+              "type": "string"
+            },
+            "region": {
+              "description": "Geographic focus (default: GLOBAL)",
+              "type": "string"
+            },
+            "summaryLevel": {
+              "description": "AI summary detail level (default: medium)",
+              "type": "string",
+              "enum": [
+                "short",
+                "medium",
+                "detailed"
+              ]
+            },
+            "maxResults": {
+              "description": "Maximum results to return (default: 15)",
+              "type": "number",
+              "minimum": 5,
+              "maximum": 50
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      {
+        "name": "siemens_productSearch",
+        "description": "Specialized search for Siemens products, solutions, and technologies with technical specifications",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Product or solution search query"
+            },
+            "industry": {
+              "description": "Target industry focus",
+              "type": "string"
+            },
+            "region": {
+              "description": "Regional availability focus (default: GLOBAL)",
+              "type": "string"
+            },
+            "includeSpecifications": {
+              "description": "Include technical specifications (default: true)",
+              "type": "boolean"
+            },
+            "includeCompatibility": {
+              "description": "Include compatibility information (default: false)",
+              "type": "boolean"
+            },
+            "maxResults": {
+              "description": "Maximum results to return (default: 12)",
+              "type": "number",
+              "minimum": 5,
+              "maximum": 30
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      {
+        "name": "siemens_search",
+        "description": "Comprehensive search combining AI insights, content, and products",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Search query"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      {
+        "name": "siemens_get_web_content",
+        "title": "Get Web Content",
+        "description": "Fetch and convert Siemens web content to clean markdown format using real browser automation",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "description": "URL to fetch and convert to markdown"
+            }
+          },
+          "required": [
+            "url"
+          ]
+        },
+        "annotations": {
+          "readOnlyHint": true
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      }
+    ]
+  }
+}
