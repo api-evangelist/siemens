@@ -1,6 +1,7 @@
 generated: '2026-10-14'
 method: searched
 checked:
+- autodesk/integrations/autodesk-integration-edges.yml
 - https://a2aregistry.org/api/agents
 - https://api.nuget.org/v3
 - https://brickschema.org/consortium/
@@ -26,129 +27,36 @@ checked:
 source:
 - microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
 edges:
-- partner_name: OPC Foundation (OPC UA)
-  partner: null
-  partner_match: register
-  type: register
-  direction: partner-built
-  evidence: https://opcfoundation.org/products/view/simatic-s7-1500-plc-family/
-  category: OPC UA products
-  channel: standard-directory
-  relationship: standard-participant
-  contract_reference:
-    register: OPC Foundation product marketplace (opcfoundation.org/products)
-    spec_file: null
-    standard: OPC UA
-    role: OPC UA certified product vendor
-    registered_name: Siemens AG
-    member_id: '353'
-    website: http://www.siemens.com/
-    matched_domain: siemens.com
-    matched_by: domain+name-among-holders
-    listed_products: 22
-    certified_products:
-    - product: Building Management
-      certified_listings: 1
-      lapsed: false
-    - product: Controller
-      certified_listings: 1
-      lapsed: false
-    - product: Gateway
-      certified_listings: 1
-      lapsed: false
-    listed_categories:
-    - AutoID
-    - Data Integration
-    - None
-    - Services
-    - Tools
-    sample_products:
-    - Siemens AG Desigo CC – Building Management Station Show details
-    - Siemens AG Industrial Information Hub Show details
-    - Siemens AG OPC UA with SIMATIC Controllers (Learning Journey) Show details
-    - Siemens AG OPC UA with SIMATIC Controllers Show details
-    - Siemens AG OPC UA – System Course Siemens Show details
-    signal_note: certified_products = one entry per product CATEGORY with a certified product (diversity), never
-      per product; listed_products is context, never read
-    detected_by: sweep-industrial-robotics.py
-    detected: '2026-10-15'
-  detected_by: sweep-industrial-robotics.py
-  first_seen: '2026-10-15'
-- partner_name: OPC Foundation (OPC UA)
-  partner: null
-  partner_match: register
-  type: register
-  direction: partner-built
-  evidence: https://opcfoundation.org/products/view/simatic-s7-1500-plc-family/
-  category: OPC UA products
-  channel: standard-directory
-  relationship: compatible
-  shape: opc-ua
-  evidence_kind: conformance-register
-  degree: certified
-  report_only: true
-  contract_reference:
-    register: OPC Foundation product marketplace (opcfoundation.org/products)
-    spec_file: null
-    standard: OPC UA
-    role: opc-ua-certified
-    registered_name: Siemens AG
-    matched_domain: siemens.com
-    detected_by: sweep-industrial-robotics.py
-    detected: '2026-10-15'
-  detected_by: sweep-industrial-robotics.py
-  first_seen: '2026-10-15'
-- partner_name: Microsoft Sentinel (own)
-  partner: microsoft-sentinel
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SINEC%20Security%20Guard
-  mirror_of: microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
-  apps:
-  - SINEC Security Guard
-  listing_count: 1
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: Security - Network
-  badges:
-  - support-tier:partner
-- partner_name: A2A protocol (own Agent Card)
-  partner: null
+- partner_name: PyPI
+  partner: pypi
   partner_match: register
   type: register
   direction: provider-built
-  category: A2A agent
-  evidence: https://mcp.siemens.com/.well-known/agent.json
-  channel: provider-built
-  relationship: compatible
-  shape: a2a
-  evidence_kind: own-wellknown
-  degree: conformant
-  report_only: true
-  a2a_card:
-    grade: conformant
-    verdict: live
-    protocol_version: 0.3.0
-    deviations: []
-    card_subject: unknown
+  category: official SDK (Python)
+  evidence: https://pypi.org/project/siemens/
+  channel: package-registry
+  relationship: distribution-channel
   contract_reference:
-    register: provider's own /.well-known/agent-card.json
+    register: PyPI (public registry JSON)
     spec_file: null
-    standard: A2A
-    role: a2a-agent-card
-    registered_name: Siemens Enterprise Knowledge Agent
-    organization: Siemens AG
-    matched_domain: siemens.com
-    matched_by: own-domain
-    detected_by: sweep-ai-agents.py
-    detected: '2026-10-15'
-  detected_by: sweep-ai-agents.py
-  first_seen: '2026-10-15'
+    language: Python
+    packages:
+    - name: siemens
+      version: 0.1.0
+      released: '2022-08-25'
+      released_field: upload_time
+      lapsed: true
+      page: https://pypi.org/project/siemens/
+      repo_leg: domain:siemens.com
+      publisher_leg: email:siemens.com
+      matched_by: domain+name-among-holders
+    current: false
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
 - partner_name: BACnet Testing Laboratories (BTL Listed)
   partner: null
   partner_match: register
@@ -299,7 +207,7 @@ edges:
       type); product names are context, never a count; current listing only (archives.php superseded listings not
       read)
     detected_by: sweep-building-automation.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-building-automation.py
   first_seen: '2026-10-15'
 - partner_name: BACnet Testing Laboratories (BTL Listed)
@@ -323,7 +231,7 @@ edges:
     registered_name: Siemens
     matched_domain: siemens.com
     detected_by: sweep-building-automation.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-building-automation.py
   first_seen: '2026-10-15'
 - partner_name: KNX Association (manufacturer members)
@@ -346,7 +254,7 @@ edges:
     matched_by: domain+name-among-holders
     signal_note: 'participation only: membership is not a product certification'
     detected_by: sweep-building-automation.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-building-automation.py
   first_seen: '2026-10-15'
 - partner_name: Project Haystack (members)
@@ -369,7 +277,7 @@ edges:
     matched_by: domain+name-among-holders
     signal_note: 'participation only: membership level is context'
     detected_by: sweep-building-automation.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-building-automation.py
   first_seen: '2026-10-15'
 - partner_name: Brick Consortium (commercial members)
@@ -392,7 +300,7 @@ edges:
     matched_by: domain+name-among-holders
     signal_note: participation only
     detected_by: sweep-building-automation.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-building-automation.py
   first_seen: '2026-10-15'
 - partner_name: Fivetran
@@ -421,6 +329,116 @@ edges:
     builder: Fivetran
   detected_by: sweep-data-integration.py
   first_seen: '2026-10-18'
+- partner_name: OPC Foundation (OPC UA)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://opcfoundation.org/products/view/simatic-s7-1500-plc-family/
+  category: OPC UA products
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: OPC Foundation product marketplace (opcfoundation.org/products)
+    spec_file: null
+    standard: OPC UA
+    role: OPC UA certified product vendor
+    registered_name: Siemens AG
+    member_id: '353'
+    website: http://www.siemens.com/
+    matched_domain: siemens.com
+    matched_by: domain+name-among-holders
+    listed_products: 22
+    certified_products:
+    - product: Building Management
+      certified_listings: 1
+      lapsed: false
+    - product: Controller
+      certified_listings: 1
+      lapsed: false
+    - product: Gateway
+      certified_listings: 1
+      lapsed: false
+    listed_categories:
+    - AutoID
+    - Data Integration
+    - None
+    - Services
+    - Tools
+    sample_products:
+    - Siemens AG Desigo CC – Building Management Station Show details
+    - Siemens AG Industrial Information Hub Show details
+    - Siemens AG OPC UA with SIMATIC Controllers (Learning Journey) Show details
+    - Siemens AG OPC UA with SIMATIC Controllers Show details
+    - Siemens AG OPC UA – System Course Siemens Show details
+    signal_note: certified_products = one entry per product CATEGORY with a certified product (diversity), never
+      per product; listed_products is context, never read
+    detected_by: sweep-industrial-robotics.py
+    detected: '2026-10-19'
+  detected_by: sweep-industrial-robotics.py
+  first_seen: '2026-10-15'
+- partner_name: OPC Foundation (OPC UA)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://opcfoundation.org/products/view/simatic-s7-1500-plc-family/
+  category: OPC UA products
+  channel: standard-directory
+  relationship: compatible
+  shape: opc-ua
+  evidence_kind: conformance-register
+  degree: certified
+  report_only: true
+  contract_reference:
+    register: OPC Foundation product marketplace (opcfoundation.org/products)
+    spec_file: null
+    standard: OPC UA
+    role: opc-ua-certified
+    registered_name: Siemens AG
+    matched_domain: siemens.com
+    detected_by: sweep-industrial-robotics.py
+    detected: '2026-10-19'
+  detected_by: sweep-industrial-robotics.py
+  first_seen: '2026-10-15'
+- partner_name: Autodesk (own)
+  partner: autodesk
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.autodesk.com/apps/6976f871-b4d7-4c1a-bce8-c50121ca0eb0
+  mirror_of: autodesk/integrations/autodesk-integration-edges.yml
+  apps:
+  - BIMPOWER
+  listing_count: 1
+  detected: '2026-10-19'
+  detected_by: mirror-platform-listings.py
+  category: RVT
+  publisher_verified:
+  - autodesk-digital-signature
+- partner_name: Microsoft Sentinel (own)
+  partner: microsoft-sentinel
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SINEC%20Security%20Guard
+  mirror_of: microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
+  apps:
+  - SINEC Security Guard
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Security - Network
+  badges:
+  - support-tier:partner
 - partner_name: Microsoft Teams (own)
   partner: microsoft-teams
   partner_match: mirror
@@ -441,33 +459,3 @@ edges:
   publisher_verified:
   - Microsoft 365 Certified
   - Microsoft 365 Publisher Attestation
-- partner_name: PyPI
-  partner: pypi
-  partner_match: register
-  type: register
-  direction: provider-built
-  category: official SDK (Python)
-  evidence: https://pypi.org/project/siemens/
-  channel: package-registry
-  relationship: distribution-channel
-  contract_reference:
-    register: PyPI (public registry JSON)
-    spec_file: null
-    language: Python
-    packages:
-    - name: siemens
-      version: 0.1.0
-      released: '2022-08-25'
-      released_field: upload_time
-      lapsed: true
-      page: https://pypi.org/project/siemens/
-      repo_leg: domain:siemens.com
-      publisher_leg: email:siemens.com
-      matched_by: domain+name-among-holders
-    current: false
-    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
-      24 months'
-    detected_by: sweep-official-sdks.py
-    detected: '2026-10-18'
-  detected_by: sweep-official-sdks.py
-  first_seen: '2026-10-18'
