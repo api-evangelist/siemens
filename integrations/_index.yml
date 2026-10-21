@@ -460,3 +460,45 @@
     detected: '2026-10-20'
   status: not-a-workflow
   arazzo: null
+- slug: siemens-open-compute-project-marketplace
+  label: Open Compute Project marketplace
+  partner_name: Open Compute Project marketplace
+  category: data-center hardware recognition
+  type: register
+  channel: standard-directory
+  evidence: https://www.opencompute.org/marketplace/facilities-physical-infrastructure/sinamics-g220-clean-power-variable-frequency-drive/
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: Open Compute Project marketplace (opencompute.org/products; /wp-json/wp/v2/marketplace + /companies)
+    standard: Open Compute Project
+    spec_file: null
+    role: ocp-recognised-product-vendor
+    registered_name: Siemens
+    register_id: https://www.opencompute.org/members/siemens/
+    matched_domain: siemens.com
+    matched_by: domain+name-among-holders
+    listings: 1
+    recognised_listings: 1
+    products_sample:
+    - SINAMICS G220 Clean Power Variable Frequency Drive
+    signal_note: certified_products = one entry per product type (OCP recognition + most specific marketplace segment)
+      among OCP-recognised listings; unrecognised listings are listing alone (participation). The REST data marks
+      no listing archived, so lapsed is false. Listing counts are context, never counted
+    detected_by: sweep-semiconductor-consortia.py
+    detected: '2026-10-21'
+    certified_products:
+    - product: 'OCP Accepted: Controls & Instrumentation'
+      recognition: OCP Accepted
+      product_type: Controls & Instrumentation
+      lapsed: false
+      listings: 1
+      newest_listing: '2026-06-12'
+    - product: 'OCP Accepted: Physical Infrastructure'
+      recognition: OCP Accepted
+      product_type: Physical Infrastructure
+      lapsed: false
+      listings: 1
+      newest_listing: '2026-06-12'
+  status: not-a-workflow
+  arazzo: null

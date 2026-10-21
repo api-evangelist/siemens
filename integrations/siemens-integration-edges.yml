@@ -29,6 +29,13 @@ checked:
 - https://listings.pcisecuritystandards.org/assessors_and_solutions
 - https://pypi.org/org/{org}/
 - https://pypi.org/pypi/{package}/json
+- https://riscv.landscape2.io/data/full.json
+- https://riscv.org/members/
+- https://www.nist.gov/chips/chips-program-office-awards
+- https://www.nist.gov/chips/chips-rd-office-awards
+- https://www.opencompute.org/products
+- https://www.opencompute.org/wp-json/wp/v2/companies
+- https://www.opencompute.org/wp-json/wp/v2/marketplace
 source:
 - microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
 edges:
@@ -553,3 +560,46 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-ide-extension-marketplaces.py
   first_seen: '2026-10-20'
+- partner_name: Open Compute Project marketplace
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.opencompute.org/marketplace/facilities-physical-infrastructure/sinamics-g220-clean-power-variable-frequency-drive/
+  category: data-center hardware recognition
+  contract_reference:
+    register: Open Compute Project marketplace (opencompute.org/products; /wp-json/wp/v2/marketplace + /companies)
+    standard: Open Compute Project
+    spec_file: null
+    role: ocp-recognised-product-vendor
+    registered_name: Siemens
+    register_id: https://www.opencompute.org/members/siemens/
+    matched_domain: siemens.com
+    matched_by: domain+name-among-holders
+    listings: 1
+    recognised_listings: 1
+    products_sample:
+    - SINAMICS G220 Clean Power Variable Frequency Drive
+    signal_note: certified_products = one entry per product type (OCP recognition + most specific marketplace segment)
+      among OCP-recognised listings; unrecognised listings are listing alone (participation). The REST data marks
+      no listing archived, so lapsed is false. Listing counts are context, never counted
+    detected_by: sweep-semiconductor-consortia.py
+    detected: '2026-10-21'
+    certified_products:
+    - product: 'OCP Accepted: Controls & Instrumentation'
+      recognition: OCP Accepted
+      product_type: Controls & Instrumentation
+      lapsed: false
+      listings: 1
+      newest_listing: '2026-06-12'
+    - product: 'OCP Accepted: Physical Infrastructure'
+      recognition: OCP Accepted
+      product_type: Physical Infrastructure
+      lapsed: false
+      listings: 1
+      newest_listing: '2026-06-12'
+  detected_by: sweep-semiconductor-consortia.py
+  first_seen: '2026-10-21'
+  partner_tier: OCP Accepted
